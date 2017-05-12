@@ -1,11 +1,22 @@
 import { createStore, applyMiddleware, compose } from 'redux';
+import { connectRouter, routerMiddleware } from 'connected-react-router'
 import thunk from 'redux-thunk';
+import api from 'app/middleware/api';
 
 import rootReducer from 'app/reducers';
-//import giphy from 'middleware/giphy';
 
-const enhancer = compose(applyMiddleware(thunk));
+export default (initialState, history) => {
+  const enhancer = compose(applyMiddleware(
+    thunk,
+    api,
+    routerMiddleware(history)
+  ));
 
-const store = createStore(rootReducer, enhancer);
+  const store = createStore(
+      connectRouter(history)(rootReducer),
+      initialState,
+      enhancer
+    );
 
-export default store;
+  return store;
+};

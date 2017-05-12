@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import ReactDOM from 'react-dom/server';
-import Html from '../helpers/Html';
 
 export const loadOnServer = async (store, component) => {
 
