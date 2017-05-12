@@ -1,6 +1,8 @@
 export default {
     api: {
-        host: ''
+        host: '',
+        production: 'http://localhost/wp-json/wp/v2/',
+        development: 'http://localhost/wp-json/wp/v2/'
     },
     disable_ssr: false,
     server:

@@ -6,7 +6,8 @@ export const AsyncRegister = ({key, promise}, props) => (dispatch, getState) => 
 
   const state = getState().asyncReducer;
 
-  if(state.loadState[key] && state.loadState[key].loaded){
+  if(state.loadState[key] &&
+     (state.loadState[key].loading || state.loadState[key].loaded)){
     return;
   }
 

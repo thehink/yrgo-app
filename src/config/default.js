@@ -1,7 +1,10 @@
 export default {
     api: {
-        host: ''
+        host: '',
+        production: '',
+        development: ''
     },
+
     disable_ssr: false,
     server:
     {

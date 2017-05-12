@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import ReactDOM from 'react-dom/server';
 
-export const loadOnServer = async (store, component) => {
+export const loadOnServer = (store, component) => {
 
   return new Promise((resolve, reject) => {
     let unsubscribe = store.subscribe(() => {
