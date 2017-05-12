@@ -1,0 +1,6 @@
+{
+  "server": {
+    "input": ["babel-polyfill", "./src/server/server.js"],
+    "output": "./webroot/build/server/server.js"
+  }
+}
