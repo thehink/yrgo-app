@@ -5,6 +5,8 @@ import { withRouter } from 'react-router';
 import TestHome from 'components/TestHome';
 import NotFound from 'components/NotFound';
 
+import styles from './home.scss';
+
 @withRouter
 class Home extends Component {
   componentWillMount(){
@@ -13,7 +15,7 @@ class Home extends Component {
 
   render() {
     return (
-      <div className="home">
+      <div className={ styles.home }>
         <h1>Home </h1>
         <pre>
 
