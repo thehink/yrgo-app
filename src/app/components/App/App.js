@@ -10,8 +10,13 @@ import './app.css';
 
 import { fetchPostTypes } from 'app/actions';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   //console.log(state);
+  //api.posts().id(1)
+  //let postId = ownProps.match.params.id;
+  //let post = state.wp.posts.items[postId];
+  //let fetching = state.wp.posts.isFetching;
+  //return { post }
   return {  };
 }
 
