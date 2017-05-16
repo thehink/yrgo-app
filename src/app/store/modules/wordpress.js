@@ -5,13 +5,7 @@ import { schema } from 'normalizr';
 import capitalize from 'lodash/capitalize';
 import WPAPI from 'wpapi';
 import apiRoutes from 'src/config/api-endpoint.json';
-import { WP_API } from '../middleware/wpApi';
-
-const site = new WPAPI({
-    endpoint: 'http://localhost/wp-json',
-    routes: apiRoutes.routes
-});
-
+import { wpapi, WP_API } from '../middleware/wpApi';
 
 const Schemas = {};
 
@@ -23,8 +17,8 @@ Schemas.taxonomies = new schema.Entity('taxonomies', {}, {
   idAttribute: taxonomy => taxonomy.name.toLowerCase()
 });
 
-for(let type in site){
-  if(type[0] !== '_' && site.hasOwnProperty(type) && !Schemas[type]){
+for(let type in wpapi){
+  if(type[0] !== '_' && wpapi.hasOwnProperty(type) && !Schemas[type]){
     Schemas[type] = new schema.Entity(type, {});
   }
 }

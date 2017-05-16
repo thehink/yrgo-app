@@ -2,13 +2,12 @@ import { normalize, schema } from 'normalizr';
 import values from 'lodash/values';
 import WPAPI from 'wpapi';
 import apiRoutes from 'src/config/api-endpoint.json';
+import config from 'src/config';
 
-const wpapi = new WPAPI({
-    endpoint: 'http://localhost/wp-json',
+export const wpapi = new WPAPI({
+    endpoint: config.api.host,
     routes: apiRoutes.routes
 });
-
-const API_ROOT = 'http://127.0.0.1/wp-json/wp/v2/';
 
 const apiFetch = async ({namespace, type, collection, method = 'get', schema, params, body}) => {
   if(collection){
