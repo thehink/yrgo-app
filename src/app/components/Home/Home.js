@@ -3,12 +3,11 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
 
 import TestHome from 'components/TestHome';
-import NotFound from 'components/NotFound';
 
 import styles from './home.scss';
 
 @withRouter
-class Home extends Component {
+export default class Home extends Component {
   componentWillMount(){
     //console.log('Render HOME!');
   }
@@ -25,5 +24,3 @@ class Home extends Component {
     );
   }
 }
-
-export default Home;
