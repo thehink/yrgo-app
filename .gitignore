@@ -47,5 +47,4 @@ webroot/build
 log
 .happypack
 
-
-
+src/config/config.js
