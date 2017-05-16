@@ -12,7 +12,7 @@
     "development-build-server": "better-npm-run development-build-server",
     "development-server": "better-npm-run development-server",
     "development-build-client": "babel-node ./webpack/browser-sync.js",
-    "run-production": "npm-run-all production-build-client production-build-server production-server",
+    "start": "npm-run-all production-build-client production-build-server production-server",
     "production-build-client": "webpack --colors --display-error-details --config ./webpack/webpack.config.client.production.babel.js",
     "production-build-server": "webpack --colors --display-error-details --config ./webpack/webpack.config.server.production.babel.js",
     "production-server": "better-npm-run production-server"
@@ -89,6 +89,8 @@
     "node-fetch": "^1.6.3",
     "normalizr": "^3.2.2",
     "print-error": "^0.1.11",
+    "react-async-bootstrapper": "^1.1.1",
+    "react-async-component": "^1.0.0-beta.3",
     "react-helmet": "^5.0.3",
     "react-history": "^0.18.2",
     "react-router": "next",

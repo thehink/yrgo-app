@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { asyncConnect } from 'src/AsyncConnect';
-
 import { withRouter } from 'react-router';
 
-import './app.css';
+import Actions from 'app/store/modules/wordpress';
 
-import { fetchPostTypes } from 'app/actions';
+const { fetchPost, fetchPosts } = Actions;
+
+import './app.css';
 
 const mapStateToProps = (state, ownProps) => {
   //console.log(state);
@@ -17,21 +17,27 @@ const mapStateToProps = (state, ownProps) => {
   //let post = state.wp.posts.items[postId];
   //let fetching = state.wp.posts.isFetching;
   //return { post }
+  console.log(state);
   return {  };
 }
 
 const mapDispatchToProps = {
-  fetchPostTypes
+  fetchPost,
+  fetchPosts
 };
 
-@asyncConnect({
-  fetchPostTypes: (props) => props.fetchPostTypes()
-}, mapStateToProps, mapDispatchToProps)
+@connect(mapStateToProps, mapDispatchToProps)
 export default class App extends Component {
+
+  asyncBootstrap() {
+    //return this.props.posts();
+    return this.props.fetchPosts({author: 1});
+    //return this.props.fetchPostBySlug();
+  }
 
   componentWillMount(){
     //this.props.fetchPostTypes();
-    console.log('Render APP!');
+    //console.log('Render APP!');
   }
 
   render() {

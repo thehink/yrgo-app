@@ -10,7 +10,7 @@ import styles from './home.scss';
 @withRouter
 class Home extends Component {
   componentWillMount(){
-    console.log('Render HOME!');
+    //console.log('Render HOME!');
   }
 
   render() {

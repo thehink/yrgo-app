@@ -5,8 +5,8 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-  if (action.response && action.response.entities) {
-    return merge({}, state, action.response.entities)
+  if (action.payload && action.payload.entities) {
+    return merge({}, state, action.payload.entities)
   }
 
   return state

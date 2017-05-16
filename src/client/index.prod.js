@@ -2,11 +2,12 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { createBrowserHistory } from 'history';
-import { ConnectedRouter } from 'connected-react-router'
+import { ConnectedRouter } from 'connected-react-router';
+import asyncBootstrapper from 'react-async-bootstrapper';
 
 import createStore from 'store/store';
 
-import getRoutes from 'app/routes';
+import Routes from 'app/routes';
 
 const history = createBrowserHistory();
 const store = createStore(window.__data, history);
@@ -15,15 +16,15 @@ import App from 'components/App';
 
 const component = getRoutes;
 
-const renderHot = Component => {
-  render(
-      <Provider store={store}>
-        <ConnectedRouter history={ history }>
-          <Component />
-        </ConnectedRouter>
-      </Provider>,
-    document.getElementById('content')
-  );
-};
+const container = (
+  <Provider store={store}>
+    <ConnectedRouter history={ history }>
+      <Routes />
+    </ConnectedRouter>
+  </Provider>
+);
 
-renderHot(component);
+asyncBootstrapper(container).then(() => {
+  // bootstrapping complete
+  render(container, document.getElementById('content'));
+});

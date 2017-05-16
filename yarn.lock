@@ -4519,6 +4519,16 @@ rc@^1.0.1, rc@^1.1.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-async-bootstrapper@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/react-async-bootstrapper/-/react-async-bootstrapper-1.1.1.tgz#130153c064558edf5fae6500db4e2081662fa323"
+  dependencies:
+    react-tree-walker "^2.1.1"
+
+react-async-component@^1.0.0-beta.3:
+  version "1.0.0-beta.3"
+  resolved "https://registry.yarnpkg.com/react-async-component/-/react-async-component-1.0.0-beta.3.tgz#72f79feecd47c7345dc15e24eec86d81a0ce320c"
+
 react-deep-force-update@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/react-deep-force-update/-/react-deep-force-update-2.0.1.tgz#4f7f6c12c3e7de42f345992a3c518236fa1ecad3"
@@ -4608,6 +4618,10 @@ react-side-effect@^1.1.0:
   dependencies:
     exenv "^1.2.1"
     shallowequal "^0.2.2"
+
+react-tree-walker@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/react-tree-walker/-/react-tree-walker-2.1.1.tgz#80ab80a0caa78f029fea39f42306b13b5d51bb8d"
 
 react@^15.5.4:
   version "15.5.4"

@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
 
-import { asyncReducer } from 'src/AsyncConnect';
+import { reducer as wp } from './wordpress';
 
 import entities from './entities';
 
 const rootReducer = combineReducers({
-  asyncReducer,
-  entities
+  entities,
+  wp
 });
 
 export default rootReducer;

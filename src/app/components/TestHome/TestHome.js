@@ -3,11 +3,10 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
 
 import { asyncConnect } from 'src/AsyncConnect';
-import { fetchPostTypes } from 'app/actions';
 
 export default class TestHome extends Component {
   componentWillMount(){
-    console.log('Render TESTHOME!');
+    //console.log('Render TESTHOME!');
   }
 
   componentWillReceiveProps(){

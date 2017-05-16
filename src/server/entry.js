@@ -2,8 +2,6 @@ import Express from 'express';
 import React from 'react';
 import ReactDOM from 'react-dom/server';
 import path from 'path';
-import { matchPath  } from 'react-router';
-//import {ReduxAsyncConnect, loadOnServer} from 'redux-connect';
 import createHistory from 'history/createMemoryHistory';
 import {Provider} from 'react-redux';
 
@@ -18,12 +16,9 @@ import createStore from 'app/store';
 import Routes from 'app/routes';
 
 import Log from 'src/utils/log';
-
 import Html from '../helpers/Html';
 
-import { loadOnServer } from 'src/AsyncConnect';
-
-import { fetchPostTypes } from 'app/actions';
+import asyncBootstrapper from 'react-async-bootstrapper';
 
 export default function (parameters) {
     const app = new Express();
@@ -67,9 +62,7 @@ export default function (parameters) {
             </Provider>
         );
 
-        loadOnServer(store, component)
-        .then(() => {
-          console.log('begin!');
+        asyncBootstrapper(component).then(() => {
 
           const content = ReactDOM.renderToString(
               <Html
@@ -79,8 +72,6 @@ export default function (parameters) {
                   context={context}
               />
           );
-
-          console.log('done!');
 
           if (context.status) {
               res.status(context.status);
@@ -95,10 +86,15 @@ export default function (parameters) {
           // }
 
           res.send(`<!doctype html>\n${content}`);
-        })
-        .catch(() => {
-          res.status(500);
-        })
+        });
+
+        // loadOnServer(store, component)
+        // .then(() => {
+        //
+        // })
+        // .catch(() => {
+        //   res.status(500);
+        // })
     });
 
     server.listen(configuration.server.http.port, (error) => {
