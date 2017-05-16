@@ -1,9 +1,9 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import { connectRouter, routerMiddleware } from 'connected-react-router'
 import thunk from 'redux-thunk';
-import api from 'app/middleware/api';
+import api from './middleware/wpApi';
 
-import rootReducer from 'app/reducers';
+import rootReducer from './modules/reducer';
 
 export default (initialState, history) => {
   const enhancer = compose(applyMiddleware(

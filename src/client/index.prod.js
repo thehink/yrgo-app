@@ -14,8 +14,6 @@ const store = createStore(window.__data, history);
 
 import App from 'components/App';
 
-const component = getRoutes;
-
 const container = (
   <Provider store={store}>
     <ConnectedRouter history={ history }>

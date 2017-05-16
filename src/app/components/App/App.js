@@ -17,7 +17,6 @@ const mapStateToProps = (state, ownProps) => {
   //let post = state.wp.posts.items[postId];
   //let fetching = state.wp.posts.isFetching;
   //return { post }
-  console.log(state);
   return {  };
 }
 
