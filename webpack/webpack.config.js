@@ -1,6 +1,9 @@
 import path from 'path';
 import autoprefixer from 'autoprefixer';
 import csswring from 'csswring';
+import postcssFlexbugsFixer from 'postcss-flexbugs-fixes';
+
+var autoprefixerBrowsers = require('bootstrap/grunt/postcss').autoprefixer.browsers;
 
 //require('dotenv').config();
 
@@ -9,7 +12,7 @@ const rootFolder = path.resolve(__dirname, '..');
 // regular expressions for module.loaders
 export const regularExpressions = {
   javascript: /\.js$/,
-  css: /\.(css|scss)$/
+  css: /^((?!\.global).)*\.(css|scss)$/
 };
 
 const fonts = [
@@ -28,8 +31,9 @@ const fonts = [
 const postcssPlugins = [
   // Options for postcss. This adds vendor prefixes and compresses sass in production.
   // Possible to add more postcss plugins here if neccessary.
+  postcssFlexbugsFixer,
   autoprefixer({
-    browsers: ['>1%', 'last 4 versions', 'Firefox ESR', 'not ie < 9'],
+    browsers: autoprefixerBrowsers,
   }),
   csswring({ removeAllComments: true })
 ];
@@ -37,14 +41,14 @@ const postcssPlugins = [
 const cssOptions = {
   modules: true,
   sourceMap: true,
-  importLoaders: 1,
+  importLoaders: 2,
   localIdentName: '[name]__[local]___[hash:base64:5]'
 };
 
 const sassOptions = {
   outputStyle: 'expanded',
   includePaths: [
-    path.resolve(__dirname, 'node_modules'),
+    path.join(rootFolder, 'node_modules'),
     path.join(rootFolder, 'src', 'styles'),
   ],
 };
@@ -98,6 +102,23 @@ const configuration = {
         ]
       },
       {
+        test: /\.global\.(css|scss)$/,  // only files with .global will go through this loader. e.g. app.global.css
+        loaders: [
+          'style-loader',
+          'css-loader?sourceMap&importLoaders=2',
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: postcssPlugins,
+            },
+          },
+          {
+            loader: 'sass-loader',
+            options: sassOptions,
+          }
+        ]
+      },
+      {
         test: regularExpressions.css,
         use: [
           'style-loader',
@@ -110,17 +131,13 @@ const configuration = {
           {
             loader: 'postcss-loader',
             options: {
-              ...cssOptions,
               plugins: postcssPlugins,
             },
           },
           {
             loader: 'sass-loader',
-            options: {
-              ...cssOptions,
-              ...sassOptions
-            },
-          },
+            options: sassOptions,
+          }
         ]
       },
       {

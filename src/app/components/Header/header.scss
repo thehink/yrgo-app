@@ -1,0 +1,24 @@
+.wrapper{
+  .navbar{
+    height: 75px;
+    background: #FFF;
+    border-bottom: 1px solid #E4E9EB;
+  }
+
+  .nav{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 1000px;
+  }
+
+  .link{
+
+    & > a {
+      font-weight: 500;
+      font-size: 18px;
+      color: #000000 !important;
+      letter-spacing: 0;
+    }
+  }
+}

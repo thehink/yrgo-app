@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-
 import { withRouter } from 'react-router';
 
 import Actions from 'app/store/modules/wordpress';
-
 const { fetchPost, fetchPosts } = Actions;
 
-import './app.css';
+import Header from 'components/Header';
+import Footer from 'components/Footer';
+
+import 'app/styles/bootstrap.global.scss';
+import styles from './app.scss';
 
 const mapStateToProps = (state, ownProps) => {
   //console.log(state);
@@ -42,8 +44,11 @@ export default class App extends Component {
   render() {
     return (
       <app className="app">
-        <h1>App hello</h1>
-        { this.props.children }
+        <Header />
+        <section className="container-fluid">
+          { this.props.children }
+        </section>
+        <Footer />
       </app>
     );
   }
