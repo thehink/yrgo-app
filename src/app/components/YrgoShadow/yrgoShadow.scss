@@ -1,0 +1,26 @@
+@import "src/app/styles/colors";
+
+.wrapper {
+  position: relative;
+}
+
+.background {
+  position: absolute;
+  background: red;
+  height: 100%;
+  width: 100%;
+  top: 10px;
+  left: -10px;
+
+  &.yrgoRed {
+    background: $yrgo-red;
+  }
+
+  &.yrgoLightGreen {
+    background: $yrgo-light-green;
+  }
+}
+
+.content {
+  position: relative;
+}

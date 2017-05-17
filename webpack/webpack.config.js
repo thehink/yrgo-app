@@ -81,7 +81,7 @@ const configuration = {
   module: {
     rules: [
       {
-        exclude: [/\.html$/, /\.(js|jsx)?$/, /\.(css|scss)$/, /\.json$/],
+        exclude: [/\.html$/, /\.(js|jsx)?$/, /\.(jpg|png)$/, /\.(css|scss)$/, /\.json$/],
         use: [{
           loader: 'url-loader',
           options: {

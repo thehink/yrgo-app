@@ -1,0 +1,46 @@
+
+.wrapper{
+  position: relative;
+  background: #D8D8D8;
+  max-height: 572px;
+  min-height: 572px;
+  overflow: hidden;
+
+
+  & > div{
+    position: absolute;
+    display: block;
+    left: 0px;
+    top: 0px;
+    overflow: visible;
+    width: 200%;
+    margin-left: -300px;
+
+    div{
+      padding-top: 700px;
+      width: 100%;
+      background-image: url('https://madebyfew.com//content/themes/few-press/resources/assets/images/characters_tile_compressed.png');
+      background-repeat: repeat-x;
+      background-color: transparent;
+      background-position: 605px bottom;
+      background-size: 1000px;
+
+
+      &.layer1 {
+        padding-top: 600px;
+      }
+
+      &.layer2 {
+        padding-top: 700px;
+      }
+
+      &.layer3 {
+        padding-top: 800px;
+      }
+    }
+  }
+}
+
+.asd{
+
+}

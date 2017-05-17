@@ -45,9 +45,9 @@ export default class App extends Component {
     return (
       <app className="app">
         <Header />
-        <section className="container-fluid">
+        <main className={`${styles.container} container-fluid`}>
           { this.props.children }
-        </section>
+        </main>
         <Footer />
       </app>
     );
