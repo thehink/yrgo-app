@@ -37,6 +37,8 @@ export default class Html extends Component {
 
                     <link rel="shortcut icon" href="/favicon.ico" />
                     <meta name="viewport" content="width=device-width, initial-scale=1" />
+                    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
+                    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
 
                     {
                     //   __DEVELOPMENT__ && (

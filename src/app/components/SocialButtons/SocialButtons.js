@@ -7,8 +7,13 @@ import styles from './socialButtons.scss';
 
 export default class SocialButtons extends Component {
   render() {
+
+    const {
+      className
+    } = this.props;
+
     return (
-      <div className={ `${styles.wrapper} d-flex justify-content-end` } >
+      <div className={ `${styles.wrapper} d-flex justify-content-end ${className || ''}` } >
         <SocialButton
           href="facebook.com"
           type="facebook"

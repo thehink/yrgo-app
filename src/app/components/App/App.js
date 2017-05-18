@@ -10,6 +10,7 @@ import Header from 'components/Header';
 import Footer from 'components/Footer';
 
 import 'app/styles/bootstrap.global.scss';
+import 'app/styles/common.global.scss';
 import styles from './app.scss';
 
 const mapStateToProps = (state, ownProps) => {

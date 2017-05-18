@@ -1,0 +1,17 @@
+
+@import "colors";
+
+h1 {
+  color: $yrgo-red;
+  font-size: 36px;
+}
+
+h2 {
+  color: $yrgo-red;
+  font-size: 24px;
+}
+
+.max-width {
+  max-width: 1280px;
+  margin: 0 auto;
+}
