@@ -18,7 +18,7 @@ export const regularExpressions = {
 const fonts = [
   [/\.woff(\?v=\d+\.\d+\.\d+)?$/],
   [/\.woff2(\?v=\d+\.\d+\.\d+)?$/],
-  [/\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/]
+  [/\.(ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9])?$/]
 ].map((font) => {
   const rule = {
     test: font[0],
@@ -85,8 +85,8 @@ const configuration = {
         use: [{
           loader: 'url-loader',
           options: {
-            limit: 10000,
-            name: 'static/media/[name].[hash:8].[ext]',
+            limit: 1000,
+            name: 'assets/[name].[hash:8].[ext]',
           },
         }],
       },

@@ -7,7 +7,10 @@ export default class YrgoShadow extends Component {
 
   static propTypes = {
     color: PropTypes.string.isRequired,
-    offset: PropTypes.number
+    offset: PropTypes.number,
+    margin: PropTypes.number,
+    active: PropTypes.bool,
+    hover: PropTypes.bool
   }
 
   static defaultProps = {
@@ -19,11 +22,14 @@ export default class YrgoShadow extends Component {
 
     const {
       color,
-      offset
+      offset,
+      active,
+      hover,
+      className
     } = this.props;
 
     return (
-      <div className={ `${styles.wrapper} ${this.props.className}` } >
+      <div className={ `${styles.wrapper} ${this.props.className} ${active && styles.active || ''} ${hover && styles.hover || ''}` } >
         <div className={ `${styles.background} ${styles[color]}` }
           style={{top: offset, left: -offset}}
         />

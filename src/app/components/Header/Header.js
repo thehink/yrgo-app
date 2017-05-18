@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import Logo from 'app/assets/images/logo.svg';
+
 import styles from './header.scss';
 
 export default class Header extends Component {
@@ -12,8 +14,8 @@ export default class Header extends Component {
             <span className="navbar-toggler-icon"></span>
           </button>
           <a className="navbar-brand" href="#">
-            <img src="/assets/brand/bootstrap-solid.svg" width="30" height="30" className="d-inline-block align-top" alt="" />
-            Yrgo
+            <div style={{ backgroundImage: `url(${Logo})`}} className={`${styles.logo} d-inline-block align-center`}>
+            </div>
           </a>
           <div className="collapse navbar-collapse pull-right" id="navbarNav">
             <ul className={`${styles.nav} navbar-nav ml-auto`}>

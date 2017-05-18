@@ -1,0 +1,23 @@
+
+.wrapper {
+
+}
+
+.button {
+  position: relative;
+  display: block;
+  background: #FFF;
+  border: 1px solid #000;
+  color: #000000;
+  font-size: 16px;
+  letter-spacing: 0;
+  width: 100%;
+
+  a {
+    display: block;
+    position: relative;
+    color: #000;
+    text-decoration: none;
+    padding: 14px 0;
+  }
+}

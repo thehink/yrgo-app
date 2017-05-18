@@ -6,6 +6,8 @@ import Image from 'components/Image';
 import Parallax from 'components/Parallax';
 import SubjectCategories from 'components/SubjectCategories';
 import SubjectCategory from 'components/SubjectCategories/SubjectCategory';
+import FrontPageDescription from 'components/FrontPageDescription';
+import Video from 'components/Video';
 
 import styles from './home.scss';
 
@@ -36,6 +38,18 @@ export default class Home extends Component {
               <SubjectCategory>Category5</SubjectCategory>
             </SubjectCategories>
           </div>
+        </div>
+        <div className={ `row ${styles.descriptionRow}` }>
+          <div className="col-5">
+            <FrontPageDescription />
+          </div>
+          <div className="col-7">
+            <Video />
+          </div>
+        </div>
+        <div className={ `row mt-5` }>
+          {/* Newsfeeed */}
+          newsfeed
         </div>
       </div>
     );

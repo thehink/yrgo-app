@@ -3,27 +3,18 @@ import PropTypes from 'prop-types';
 
 import YrgoShadow from 'components/YrgoShadow';
 
-import styles from './image.scss';
+import styles from './video.scss';
 
-export default class Image extends Component {
-
-  static propTypes = {
-    src: PropTypes.string.isRequired
-  }
-
-  static defaultProps = {
-
-  }
-
+export default class Video extends Component {
   render() {
     return (
       <div className={ styles.wrapper } >
         <YrgoShadow
-          className={ `${styles.imageWrapper}` }
+          className={ `${styles.contentWrapper}` }
           color={ `yrgoLightGreen` }
           offset={ 20 }
         >
-          <div className={ styles.image } style={{ backgroundImage: `url(${this.props.src})` } } />
+          <iframe src="https://www.youtube.com/embed/gBjO2yYyzU0?rel=0&amp;showinfo=0" width="100%" height="100%" frameborder="0"></iframe>
         </YrgoShadow>
       </div>
     );
