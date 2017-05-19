@@ -4,12 +4,22 @@ import { Route, Switch } from 'react-router';
 import App from 'components/App';
 import Home from 'components/Home';
 import NotFound from 'components/NotFound';
+import EducationsMenu from 'components/EducationsMenu';
 
 export default () => {
   const asd = (
     <App>
       <Switch>
         <Route exact path="/" component={ Home } />
+
+        {/* match educations */}
+        <Route exact path="/educations" component={ EducationsMenu } />
+
+        {/* match educations */}
+        <Route exact path="/education/category/:slug" component={ EducationsMenu } />
+
+        {/* match educations */}
+        <Route exact path="/education/:slug" component={ EducationsMenu } />
 
         {/* match post */}
         <Route exact path="/:id(\d+)-:slug" component={ Home } />

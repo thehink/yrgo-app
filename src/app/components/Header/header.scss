@@ -1,7 +1,12 @@
+@import "src/app/styles/colors";
+
 .wrapper{
   position: fixed;
   z-index: 9;
   width: 100%;
+  top: 0;
+  border-bottom: 1px solid #E4E9EB;
+  background: #FFF;
 
   .navbar{
     flex-direction: row;
@@ -9,7 +14,6 @@
     align-items: center;
     height: 75px;
     background: #FFF;
-    border-bottom: 1px solid #E4E9EB;
   }
 
   .nav{
@@ -22,10 +26,19 @@
 
   .link{
     & > a {
-      font-weight: 500;
+      font-weight: 400;
       font-size: 18px;
       color: #000000 !important;
       letter-spacing: 0;
+    }
+
+    &:hover > a {
+      color: $yrgo-red !important;
+    }
+
+    &:active > a, & > a.active {
+      font-weight: 500;
+      color: $yrgo-red !important;
     }
   }
 }

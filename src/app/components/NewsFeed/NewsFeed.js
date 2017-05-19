@@ -20,7 +20,7 @@ export default class NewsFeed extends Component {
   render() {
 
     var settings = {
-      dots: true,
+      dots: false,
       infinite: false,
       speed: 500,
       slidesToShow: 4,
@@ -30,9 +30,11 @@ export default class NewsFeed extends Component {
     return (
       <div className={ styles.wrapper } >
         <h2>NewsFeed</h2>
-        <Slider {...settings} className={ styles.cardWrapper }>
-          { cards.map(this.renderCard) }
-        </Slider>
+        <div className={styles.slideWrapper}>
+          <Slider {...settings} className={ styles.cardWrapper }>
+            { cards.map(this.renderCard) }
+          </Slider>
+        </div>
       </div>
     );
   }

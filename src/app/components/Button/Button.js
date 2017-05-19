@@ -19,7 +19,7 @@ export default class Button extends Component {
         offset={ 10 }
         hover={ true }
       >
-        <button className={styles.button}>
+        <button {...this.props} className={styles.button}>
           { this.props.children }
         </button>
       </YrgoShadow>

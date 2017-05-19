@@ -2,10 +2,12 @@ import { handleActions } from 'redux-actions';
 
 import { combineReducers } from 'redux';
 import { schema } from 'normalizr';
-import capitalize from 'lodash/capitalize';
+import camelCase from 'lodash/camelCase';
 import WPAPI from 'wpapi';
 import apiRoutes from 'src/config/api-endpoint.json';
 import { wpapi, WP_API } from '../middleware/wpApi';
+
+import collections from './wpCollections';
 
 const Schemas = {};
 
@@ -136,19 +138,6 @@ const createWpCollectionStore = (name, type, initalParams, namespace = 'wp/v2') 
   return {action, reducer};
 }
 
-const collections = [
-  {
-    name: 'post',
-    type: 'posts',
-    params: {},
-  },
-  {
-    name: 'course',
-    type: 'courses',
-    params: {},
-  }
-];
-
 const actions = {};
 const reducers = {};
 
@@ -165,8 +154,8 @@ collections.forEach(collection => {
 
   reducers[name] = entityStore.reducer;
   reducers[`${name}s`] = collectionStore.reducer;
-  actions[`fetch${capitalize(name)}`] = entityStore.action;
-  actions[`fetch${capitalize(name)}s`] = collectionStore.action;
+  actions[camelCase(`fetch ${(name)}`)] = entityStore.action;
+  actions[camelCase(`fetch ${(name)}s`)] = collectionStore.action;
 });
 
 export const reducer = combineReducers(reducers);

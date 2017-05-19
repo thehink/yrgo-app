@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 
 import Actions from 'app/store/modules/wordpress';
-const { fetchPost, fetchPosts } = Actions;
+const { fetchPost, fetchPosts, fetchCourseCategories, fetchCourses } = Actions;
 
 import Header from 'components/Header';
 import Footer from 'components/Footer';
@@ -25,16 +25,20 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = {
   fetchPost,
-  fetchPosts
+  fetchPosts,
+  fetchCourseCategories,
+  fetchCourses
 };
 
 @connect(mapStateToProps, mapDispatchToProps)
 export default class App extends Component {
 
   asyncBootstrap() {
-    //return this.props.posts();
-    return this.props.fetchPosts({author: 1});
-    //return this.props.fetchPostBySlug();
+    //preload educations & categories
+    return Promise.all([
+      this.props.fetchCourseCategories(),
+      this.props.fetchCourses()
+    ]);
   }
 
   componentWillMount(){
@@ -49,7 +53,6 @@ export default class App extends Component {
         <main className={`${styles.container} container-fluid`}>
           { this.props.children }
         </main>
-        <Footer />
       </app>
     );
   }

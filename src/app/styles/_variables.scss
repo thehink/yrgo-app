@@ -1,34 +1,40 @@
+@import "colors";
 @import "~bootstrap/scss/variables";
 
 @font-face {
 	font-family: "gravur-condensed-black";
 	font-style: normal;
 	font-weight: normal;
-	src: url("./fonts/gravur-condensed-black.otf") format("otf")
+	src: url("./fonts/gravur-condensed-black.otf") format("opentype")
 }
 
 @font-face {
 	font-family: "gravur-condensed-bold";
 	font-style: normal;
 	font-weight: bold;
-	src: url("./fonts/gravur-condensed-bold.otf") format("otf")
+	src: url("./fonts/gravur-condensed-bold.otf") format("opentype")
 }
 
 @font-face {
 	font-family: "gravur-condensed-light";
 	font-style: normal;
 	font-weight: lighter;
-	src: url("./fonts/gravur-condensed-light.otf") format("otf")
+	src: url("./fonts/gravur-condensed-light.otf") format("opentype")
 }
 
 @font-face {
 	font-family: "gravur-condensed-regular";
 	font-style: normal;
 	font-weight: normal;
-	src: url("./fonts/gravur-condensed-regular.otf") format("otf")
+	src: url("./fonts/gravur-condensed-regular.otf") format("opentype")
 }
 
-$font-family-sans-serif: gravur-condensed-regular, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-$font-family-serif:      gravur-condensed-regular, Georgia, "Times New Roman", Times, serif;
+$font-family-sans-serif: gravur-condensed-regular, sans-serif;
+$font-family-serif:      gravur-condensed-regular, serif;
 $font-family-monospace:  Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 $font-family-base:       $font-family-sans-serif;
+
+$link-color:            $brand-primary;
+$link-decoration:       none;
+$link-hover-color:      darken($link-color, 15%);
+$link-hover-decoration: underline;
