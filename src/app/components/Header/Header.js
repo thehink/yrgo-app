@@ -26,7 +26,7 @@ export default class Header extends Component {
           </Link>
           <ul className={`${styles.nav} navbar-nav ml-auto`}>
             <li className={`${styles.link} nav-item`}>
-              <NavLink activeClassName={styles.active} className="nav-link" to="/educations">Utbildningar</NavLink>
+              <NavLink activeClassName={styles.active} className="nav-link" to="/courses">Utbildningar</NavLink>
             </li>
             <li className={`${styles.link} nav-item`}>
               <NavLink activeClassName={styles.active} className="nav-link" to="/business">För Företag</NavLink>

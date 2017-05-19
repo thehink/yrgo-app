@@ -13,13 +13,13 @@ export default () => {
         <Route exact path="/" component={ Home } />
 
         {/* match educations */}
-        <Route exact path="/educations" component={ EducationsMenu } />
+        <Route exact path="/courses" component={ EducationsMenu } />
 
         {/* match educations */}
-        <Route exact path="/education/category/:slug" component={ EducationsMenu } />
+        <Route exact path="/course/category/:slug" component={ EducationsMenu } />
 
         {/* match educations */}
-        <Route exact path="/education/:slug" component={ EducationsMenu } />
+        <Route exact path="/course/:slug" component={ EducationsMenu } />
 
         {/* match post */}
         <Route exact path="/:id(\d+)-:slug" component={ Home } />

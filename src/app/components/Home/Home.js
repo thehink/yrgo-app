@@ -35,7 +35,7 @@ export default class Home extends Component {
   renderCategory(category){
     return (
       <SubjectCategory key={ category.id }
-        url={`/education/category/${category.slug}`}
+        url={`/course/category/${category.slug}`}
         >
         { category.name }
       </SubjectCategory>

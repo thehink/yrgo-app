@@ -22,7 +22,7 @@ menu.wrapper {
 
 .category {
   margin-bottom: 40px;
-  border: none;
+  border: none !important;
 
   & > a.link {
     color: $yrgo-red;

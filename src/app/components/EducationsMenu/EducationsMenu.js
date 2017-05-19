@@ -37,7 +37,7 @@ export default class EducationsMenu extends Component {
       .map(course => ({
         id: course.id,
         title: course.title.rendered,
-        link: `/education/${course.slug}`
+        link: `/course/${course.slug}`
       }));
 
       courseLinks.forEach(e => courseLinks.push(e));
@@ -46,7 +46,7 @@ export default class EducationsMenu extends Component {
       links.push({
         id: category.id,
         title: category.name,
-        link: `/education/category/${category.slug}`,
+        link: `/course/category/${category.slug}`,
         links: courseLinks,
       });
     });
