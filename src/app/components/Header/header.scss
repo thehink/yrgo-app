@@ -1,5 +1,12 @@
 .wrapper{
+  position: fixed;
+  z-index: 9;
+  width: 100%;
+
   .navbar{
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
     height: 75px;
     background: #FFF;
     border-bottom: 1px solid #E4E9EB;
@@ -8,6 +15,7 @@
   .nav{
     display: flex;
     justify-content: space-around;
+    flex-direction: row;
     width: 100%;
     max-width: 1000px;
   }
@@ -27,4 +35,8 @@
   background-repeat: no-repeat;
   width: 150px;
   height: 30px;
+
+  &.logo2 {
+    width: 30px;
+  }
 }

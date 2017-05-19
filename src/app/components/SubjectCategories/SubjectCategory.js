@@ -13,7 +13,7 @@ export default class SubjectCategory extends Component {
 
   render() {
     return (
-      <div className={ `${styles.wrapper} col-6` } >
+      <div className={ `${styles.wrapper} col-6 p-0` } >
         <Button className={ styles.buttonWrapper }>
           <a href="#">Link2</a>
         </Button>

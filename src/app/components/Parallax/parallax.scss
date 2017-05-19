@@ -28,14 +28,17 @@
 
       &.layer1 {
         padding-top: 600px;
+        background-position: 305px bottom;
       }
 
       &.layer2 {
         padding-top: 700px;
+        background-position: 705px bottom;
       }
 
       &.layer3 {
         padding-top: 800px;
+        background-position: 105px bottom;
       }
     }
   }

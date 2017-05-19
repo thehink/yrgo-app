@@ -21,11 +21,7 @@ export default class Home extends Component {
   render() {
     return (
       <div className={ styles.wrapper }>
-        <div className="row">
-          <div className="col-12 p-0">
-            <Parallax />
-          </div>
-        </div>
+        <Parallax />
         <div className={ `${styles.categoryRow} row max-width` }>
           <div className="col-xs-12 col-md-5">
               <Image src="https://media.giphy.com/media/oimCQlndn6KPe/giphy.gif?response_id=591ca92665ca98ba4cb3b6fd" />

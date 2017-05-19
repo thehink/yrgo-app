@@ -6,5 +6,24 @@
 }
 
 .block {
+  padding: 11px 19px 11px 19px;
   background: #E4E9EB;
+}
+
+.date {
+  color: #000000;
+  display: block;
+  font-size: 14px;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.text {
+  font-family: 'gravur-condensed-regular';
+  font-size: 16px;
+  color: #000000;
+  letter-spacing: 0;
+  line-height: 18px;
+  font-weight: 400;
 }
