@@ -58,8 +58,6 @@ export default class CourseCategory extends Component {
       return (<div>Loading...</div>);
     }
 
-    console.log('CAT', category);
-
     return (
       <div className={ `${styles.wrapper} max-width` } >
         <h1>{ category.name }</h1>
