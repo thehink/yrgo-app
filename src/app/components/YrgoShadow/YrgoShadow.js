@@ -29,7 +29,7 @@ export default class YrgoShadow extends Component {
     } = this.props;
 
     return (
-      <div className={ `${styles.wrapper} ${this.props.className} ${active && styles.active || ''} ${hover && styles.hover || ''}` } >
+      <div className={ `${styles.wrapper} ${className} ${active && styles.active || ''} ${hover && styles.hover || ''}` } >
         <div className={ `${styles.background} ${styles[color]}` }
           style={{top: offset, left: -offset}}
         />

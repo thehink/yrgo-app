@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
+import Helmet from 'react-helmet';
 
 import Actions from 'app/store/modules/wordpress';
 const { fetchPost, fetchPosts, fetchCourseCategories, fetchCourses } = Actions;
@@ -49,6 +50,9 @@ export default class App extends Component {
   render() {
     return (
       <app className="app">
+        <Helmet>
+          <title>Yrgo</title>
+        </Helmet>
         <Header />
         <main className={`${styles.container} container-fluid`}>
           { this.props.children }

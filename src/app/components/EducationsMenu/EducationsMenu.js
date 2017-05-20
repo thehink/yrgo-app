@@ -33,15 +33,12 @@ export default class EducationsMenu extends Component {
     const links = [];
 
     categories.forEach(category => {
-      const courseLinks = courses.filter(course => course.acf.course_category === category.id)
+      const courseLinks = courses.filter(course => course.acf.category === category.id)
       .map(course => ({
         id: course.id,
         title: course.title.rendered,
         link: `/course/${course.slug}`
       }));
-
-      courseLinks.forEach(e => courseLinks.push(e));
-      courseLinks.forEach(e => courseLinks.push(e));
 
       links.push({
         id: category.id,

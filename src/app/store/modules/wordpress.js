@@ -124,7 +124,7 @@ const createWpCollectionStore = (name, type, initalParams, namespace = 'wp/v2') 
     [successType]: (state, {payload, meta}) => ({
       ...state,
       isFetching: false,
-      ids: payload.result,
+      ids: payload.result || [],
       meta
     }),
 

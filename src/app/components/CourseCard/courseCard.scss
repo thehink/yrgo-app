@@ -1,0 +1,32 @@
+@import "src/app/styles/colors";
+
+.wrapper {
+  display: block;
+}
+
+.link {
+  display: block;
+  border: 1px solid #000;
+  background: #FFF;
+  text-align: center;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.image {
+  height: 217px;
+  width: 100%;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #000;
+}
+
+.title {
+  padding: 57px 0;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 20px;
+  color: $yrgo-blue;
+}

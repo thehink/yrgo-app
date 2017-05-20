@@ -5,6 +5,7 @@ import App from 'components/App';
 import Home from 'components/Home';
 import NotFound from 'components/NotFound';
 import EducationsMenu from 'components/EducationsMenu';
+import CourseCategory from 'components/CourseCategory';
 
 export default () => {
   const asd = (
@@ -16,7 +17,7 @@ export default () => {
         <Route exact path="/courses" component={ EducationsMenu } />
 
         {/* match educations */}
-        <Route exact path="/course/category/:slug" component={ EducationsMenu } />
+        <Route exact path="/course/category/:slug" component={ CourseCategory } />
 
         {/* match educations */}
         <Route exact path="/course/:slug" component={ EducationsMenu } />

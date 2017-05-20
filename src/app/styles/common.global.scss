@@ -1,22 +1,33 @@
 
 @import "colors";
 
-h1 {
+h1, .heading1 {
   color: $yrgo-red;
   font-size: 36px;
 }
 
-h2 {
+h2, .heading2 {
   color: $yrgo-red;
   font-size: 24px;
 }
 
 .max-width {
-  max-width: 1088px;
+  max-width: 1118px;
+  padding: 0 15px;
   margin: 0 auto;
+
+  .row {
+    margin: 0;
+  }
 }
 
 a, button > a {
   color: #000;
   text-decoration: none;
+}
+
+.sub-heading {
+  font-size: 16px;
+  line-height: 22px;
+  color: #4A4A4A;
 }

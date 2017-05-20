@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
+import Helmet from 'react-helmet';
 
 import Image from 'components/Image';
 import Parallax from 'components/Parallax';
@@ -50,6 +51,9 @@ export default class Home extends Component {
 
     return (
       <div className={ styles.wrapper }>
+        <Helmet>
+          <title>Yrgo</title>
+        </Helmet>
         <Parallax />
         <div className={ `${styles.categoryRow} row max-width` }>
           <div className="col-xs-12 col-md-6">

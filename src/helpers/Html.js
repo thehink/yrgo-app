@@ -29,16 +29,21 @@ export default class Html extends Component {
         return (
             <html>
                 <head>
+                    <meta charset="UTF-8" />
+
                     {head.base.toComponent()}
                     {head.title.toComponent()}
                     {head.meta.toComponent()}
                     {head.link.toComponent()}
                     {head.script.toComponent()}
 
+                    <link rel="manifest" href="/manifest.json" />
+
+                    <link rel='dns-prefetch' href='//cdnjs.cloudflare.com' />
                     <link rel="shortcut icon" href="/favicon.ico" />
                     <meta name="viewport" content="width=device-width, initial-scale=1" />
-                    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
-                    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
+                    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
+                    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
 
                     {
                     //   __DEVELOPMENT__ && (

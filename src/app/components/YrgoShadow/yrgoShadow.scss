@@ -20,6 +20,11 @@
   transition: left 0.2s, top 0.2s;
   transition-timing-function: ease-in-out;
 
+  .wrapper.hover > &:hover {
+    top: 10px !important;
+    left: -10px !important;
+  }
+
   &.yrgoRed {
     background: $yrgo-red;
   }
