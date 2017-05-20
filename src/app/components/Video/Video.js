@@ -6,7 +6,17 @@ import YrgoShadow from 'components/YrgoShadow';
 import styles from './video.scss';
 
 export default class Video extends Component {
+
+  static propTypes = {
+    url: PropTypes.string
+  }
+
   render() {
+
+    const {
+      url
+    } = this.props;
+
     return (
       <div className={ styles.wrapper } >
         <YrgoShadow
@@ -14,7 +24,7 @@ export default class Video extends Component {
           color={ `yrgoLightGreen` }
           offset={ 20 }
         >
-          <iframe src="https://www.youtube.com/embed/gBjO2yYyzU0?rel=0&amp;showinfo=0" width="100%" height="100%" frameborder="0"></iframe>
+          <iframe src={`${url}?rel=0&amp;showinfo=0`} width="100%" height="100%" frameborder="0"></iframe>
         </YrgoShadow>
       </div>
     );

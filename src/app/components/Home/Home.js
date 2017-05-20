@@ -4,6 +4,9 @@ import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
 
+import Actions from 'app/store/modules/wordpress';
+const { fetchHome } = Actions;
+
 import Image from 'components/Image';
 import Parallax from 'components/Parallax';
 import SubjectCategories from 'components/SubjectCategories';
@@ -18,19 +21,54 @@ const mapStateToProps = (state, ownProps) => {
 
   const categories = state.wp.courseCategories.ids.map(id => state.entities.course_categories[id]);
 
+  const {
+    image,
+    description,
+    video_url,
+    facebook_url,
+    instagram_url
+  } = state.wp.home.id && state.entities.pages[state.wp.home.id].acf || {};
+
+  const isFetching = state.wp.home.isFetching;
+
   return {
+    isFetching,
+    image,
+    description,
+    video_url,
+    facebook_url,
+    instagram_url,
     categories
   };
 }
 
 const mapDispatchToProps = {
+  fetchHome
 };
 
 @withRouter
 @connect(mapStateToProps, mapDispatchToProps)
 export default class Home extends Component {
+
+  asyncBootstrap() {
+    return this.fetchData();
+  }
+
+  fetchData(){
+
+    if(this.props.isFetching){
+      return true;
+    }
+
+    return this.props.fetchHome();
+  }
+
   componentWillMount(){
-    //console.log('Render HOME!');
+    this.fetchData();
+  }
+
+  componentWillReceiveProps(nextProps, nextState){
+    this.fetchData();
   }
 
   renderCategory(category){
@@ -46,18 +84,25 @@ export default class Home extends Component {
   render() {
 
     const {
-      categories
+      image,
+      description,
+      video_url,
+      facebook_url,
+      instagram_url,
+      categories,
+      isFetching
     } = this.props;
+
+    if(isFetching){
+      return (<div>Loading...</div>);
+    }
 
     return (
       <div className={ styles.wrapper }>
-        <Helmet>
-          <title>Yrgo</title>
-        </Helmet>
         <Parallax />
         <div className={ `${styles.categoryRow} row max-width` }>
           <div className="col-xs-12 col-md-6">
-              <Image src="https://media.giphy.com/media/oimCQlndn6KPe/giphy.gif?response_id=591ca92665ca98ba4cb3b6fd" />
+              <Image src={ image } />
           </div>
           <div className="col-xs-12 col-md-6 mt-5 mt-md-0">
             <SubjectCategories>
@@ -67,10 +112,14 @@ export default class Home extends Component {
         </div>
         <div className={ `${styles.descriptionRow} row max-width` }>
           <div className="col-xs-12 col-md-6">
-            <FrontPageDescription />
+            <FrontPageDescription
+              text={ description }
+              facebook={ facebook_url }
+              instagram={ instagram_url }
+              />
           </div>
           <div className="col-xs-12 col-md-6 mt-5 mt-md-0">
-            <Video />
+            <Video url={ video_url } />
           </div>
         </div>
         <div className={ `${styles.newsRow} row max-width` }>

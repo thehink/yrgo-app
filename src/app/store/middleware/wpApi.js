@@ -9,6 +9,8 @@ export const wpapi = new WPAPI({
     routes: apiRoutes.routes
 });
 
+const isArray = obj => Object.prototype.toString.call( obj ) === '[object Array]';
+
 const apiFetch = async ({namespace, type, collection, method = 'get', schema, params, body}) => {
   if(collection){
     schema = [schema];
@@ -25,6 +27,12 @@ const apiFetch = async ({namespace, type, collection, method = 'get', schema, pa
     let meta = response._paging;
 
     if(schema){
+
+        //hack to fix slug query returning array
+        if(isArray(response) && !isArray(schema)){
+          response = response[0];
+        }
+
         return {
           payload: Object.assign({},
             normalize(response, schema),

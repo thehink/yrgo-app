@@ -142,20 +142,24 @@ const actions = {};
 const reducers = {};
 
 collections.forEach(collection => {
-  let {name, type} = collection;
+  let {name, type, params, multi=true, single=true} = collection;
 
   if(!name){
     name = type.slice(0, type.length - 1);
   }
 
-  const collectionStore = createWpCollectionStore(`${name}s`, type);
+  if(single){
+    const entityStore = createWpEntityStore(name, type, params);
+    reducers[name] = entityStore.reducer;
+    actions[camelCase(`fetch ${(name)}`)] = entityStore.action;
+  }
 
-  const entityStore = createWpEntityStore(name, type);
+  if(multi){
+    const collectionStore = createWpCollectionStore(`${name}s`, type, params);
+    reducers[`${name}s`] = collectionStore.reducer;
+    actions[camelCase(`fetch ${(name)}s`)] = collectionStore.action;
+  }
 
-  reducers[name] = entityStore.reducer;
-  reducers[`${name}s`] = collectionStore.reducer;
-  actions[camelCase(`fetch ${(name)}`)] = entityStore.action;
-  actions[camelCase(`fetch ${(name)}s`)] = collectionStore.action;
 });
 
 export const reducer = combineReducers(reducers);

@@ -14,6 +14,14 @@ const collections = [
     name: 'courseCategorie',
     type: 'course_categories',
     params: {},
+  },
+  {
+    name: 'home',
+    type: 'pages',
+    multi: false,
+    params: {
+      slug: 'home'
+    },
   }
 ];
 
