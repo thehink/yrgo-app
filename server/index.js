@@ -4,6 +4,7 @@ import express from 'express';
 import compression from 'compression';
 import { resolve as pathResolve } from 'path';
 import appRootDir from 'app-root-dir';
+import proxy from 'http-proxy-middleware';
 import reactApplication from './middleware/reactApplication';
 import security from './middleware/security';
 import clientBundle from './middleware/clientBundle';
@@ -31,7 +32,7 @@ if (process.env.BUILD_FLAG_IS_DEV === 'false' && config('serviceWorker.enabled')
   app.get(`/${config('serviceWorker.fileName')}`, serviceWorker);
   app.get(
     `${config('bundles.client.webPath')}${config('serviceWorker.offlinePageFileName')}`,
-    offlinePage,
+    offlinePage
   );
 }
 

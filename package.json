@@ -136,6 +136,7 @@
     "express": "4.15.2",
     "helmet": "3.5.0",
     "hpp": "0.2.1",
+    "http-proxy-middleware": "^0.17.4",
     "modernizr": "3.4.0",
     "normalize.css": "6.0.0",
     "normalizr": "^3.2.3",

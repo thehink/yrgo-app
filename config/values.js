@@ -28,6 +28,9 @@ const values = {
     wordpressApi: true,
   },
 
+  // we will create a proxy for api & admin interface
+  internalWordpressServer: EnvVars.string('INTERNAL_WORDPRESS_SERVER', 'http://localhost/'),
+
   wordpressApi: EnvVars.string('WORDPRESS_API', 'http://localhost/wp-json'),
 
   // The host on which the server should run.
@@ -76,9 +79,9 @@ const values = {
   // We make use of react-helmet to consume the values below.
   // @see https://github.com/nfl/react-helmet
   htmlPage: {
-    titleTemplate: 'React, Universally - %s',
-    defaultTitle: 'React, Universally',
-    description: 'A starter kit giving you the minimum requirements for a production ready universal react application.',
+    titleTemplate: 'Yrgo - %s',
+    defaultTitle: 'Yrgo',
+    description: 'yrgo',
   },
 
   // Content Security Policy (CSP)
@@ -334,7 +337,7 @@ const values = {
 // client bundle. That would be a big NO NO to do. :)
 if (process.env.BUILD_FLAG_IS_CLIENT === 'true') {
   throw new Error(
-    "You shouldn't be importing the `<projectroot>/config/values.js` directly into code that will be included in your 'client' bundle as the configuration object will be sent to user's browsers. This could be a security risk! Instead, use the `config` helper function located at `<projectroot>/config/index.js`.",
+    "You shouldn't be importing the `<projectroot>/config/values.js` directly into code that will be included in your 'client' bundle as the configuration object will be sent to user's browsers. This could be a security risk! Instead, use the `config` helper function located at `<projectroot>/config/index.js`."
   );
 }
 
