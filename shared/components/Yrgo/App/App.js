@@ -14,16 +14,7 @@ import 'styles/bootstrap.global.scss';
 import 'styles/common.global.scss';
 import styles from './app.scss';
 
-const mapStateToProps = (
-  state,
-  ownProps,
-  // console.log(state);
-  // api.posts().id(1)
-  // let postId = ownProps.match.params.id;
-  // let post = state.wp.posts.items[postId];
-  // let fetching = state.wp.posts.isFetching;
-  // return { post }
-) => ({});
+const mapStateToProps = (state, ownProps) => ({});
 
 const mapDispatchToProps = {
   fetchPost,
