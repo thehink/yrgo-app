@@ -16,7 +16,7 @@ export default class Menu extends Component {
 
   renderMenuItem(item){
     return (
-      <div key={ item.id + Math.random() } className={ styles.item }>
+      <div key={ item.id } className={ styles.item }>
         <Link to={ item.link } className={ styles.link }>{ item.title }</Link>
       </div>
     );
@@ -24,7 +24,7 @@ export default class Menu extends Component {
 
   renderMenuCategory(category){
     return (
-      <div key={ category.id + Math.random() } className={ `${styles.category} card` }>
+      <div key={ category.id } className={ `${styles.category} card` }>
         <Link to={ category.link } className={ styles.link }>{ category.title }</Link>
         <div className={ styles.itemsWrapper }>
           { category.links && category.links.map(this.renderMenuItem)}
