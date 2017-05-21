@@ -56,15 +56,16 @@ export default function webpackConfigFactory(buildOptions) {
     `==> Creating ${isProd ? 'an optimised' : 'a development'} bundle configuration for the "${target}"`,
   );
 
-  const postcssPlugins = [
+  const postcssPlugins = removeNil([
     // // Options for postcss. This adds vendor prefixes and compresses sass in production.
     // // Possible to add more postcss plugins here if neccessary.
-    // postcssFlexbugsFixer,
-    // autoprefixer({
-    //   browsers: autoprefixerBrowsers,
-    // }),
-    // csswring({ removeAllComments: true })
-  ];
+    ifProd(() => postcssFlexbugsFixer),
+    ifProd(() =>
+      autoprefixer({
+        browsers: autoprefixerBrowsers,
+      })),
+    ifProd(() => csswring({ removeAllComments: true })),
+  ]);
 
   const cssOptions = {
     modules: true,
