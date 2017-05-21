@@ -12,11 +12,9 @@ var exec = require('child_process').exec;
 var existsSync = require('fs').existsSync;
 var pathResolve = require('path').resolve;
 
-const preinstall = () => {
+const preinstall = function() {
   if (existsSync(pathResolve(__dirname, '../../node_modules'))) {
     // An install has already occurred.
-
-    // eslint-disable-next-line
     return;
   }
 
@@ -29,7 +27,7 @@ const preinstall = () => {
         'You are currently running Node %s but %s requires %s. Please use a supported version of Node.\n',
         process.version,
         packageJson.name,
-        packageJson.engines.node,
+        packageJson.engines.node
       );
       process.exit(1);
     }
@@ -43,7 +41,6 @@ const preinstall = () => {
     !packageJson.devDependencies.semver
   ) {
     // The package has already been customised. Ignore this script.
-    // eslint-disable-next-line
     return;
   }
 
@@ -52,7 +49,7 @@ const preinstall = () => {
     function installSemverCb(err, stdout, stderr) {
       if (err) throw err;
       checkNodeVersion();
-    },
+    }
   );
 };
 
