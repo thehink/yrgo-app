@@ -1,0 +1,57 @@
+@import "~styles/colors";
+
+.wrapper{
+  position: fixed;
+  z-index: 9;
+  width: 100%;
+  top: 0;
+  border-bottom: 1px solid #E4E9EB;
+  background: #FFF;
+
+  .navbar{
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    height: 75px;
+    background: #FFF;
+    padding: 0;
+  }
+
+  .nav{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    width: 100%;
+    max-width: 1000px;
+  }
+
+  .link{
+    & > a {
+      font-weight: 400;
+      font-size: 18px;
+      color: #000000 !important;
+      letter-spacing: 0;
+    }
+
+    &:hover > a {
+      color: $yrgo-red !important;
+    }
+
+    &:active > a, & > a.active {
+      font-weight: 500;
+      color: $yrgo-red !important;
+    }
+  }
+}
+
+.logo {
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 150px;
+  height: 30px;
+
+  &.logo2 {
+    width: 30px;
+    margin-left: 10px;
+  }
+}

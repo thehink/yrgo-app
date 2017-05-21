@@ -1,0 +1,60 @@
+@import "~styles/colors";
+
+menu.wrapper {
+  position: relative;
+  display: block;
+  margin: 141px auto;
+  padding: 0 20px;
+}
+
+.closeButton {
+  position: absolute;
+  top: -50px;
+  right: 0;
+  margin-right: 10px;
+  z-index: 9;
+
+  button {
+    height: 44px;
+    width: 44px;
+    cursor: pointer;
+  }
+}
+
+.category {
+  margin-bottom: 40px;
+  border: none !important;
+
+  & > a.link {
+    color: $yrgo-red;
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 21px;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    &:hover {
+      font-weight: bold;
+    }
+  }
+}
+
+.itemsWrapper {
+
+}
+
+.item {
+
+  a.link {
+    font-size: 14px;
+    color: #000000;
+    letter-spacing: 0;
+    line-height: 21px;
+    text-transform: none;
+    text-decoration: none;
+
+    &:hover {
+      font-weight: bold;
+    }
+  }
+}

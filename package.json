@@ -1,112 +1,223 @@
 {
-  "name": "wordpress-react",
-  "version": "0.0.1",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "clean": "rimraf build",
-    "prebuild": "npm run clean",
-    "dev": "run-p development-build-server development-build-client development-prepare-server-build development-server",
-    "development-prepare-server-build": "universal-webpack --settings ./webpack/universal-webpack-settings.json prepare",
-    "development-build-server": "better-npm-run development-build-server",
-    "development-server": "better-npm-run development-server",
-    "development-build-client": "babel-node ./webpack/browser-sync.js",
-    "start": "npm-run-all production-build-client production-build-server production-server",
-    "build-production": "npm-run-all production-build-client production-build-server",
-    "production-build-client": "webpack --colors --display-error-details --config ./webpack/webpack.config.client.production.babel.js",
-    "production-build-server": "webpack --colors --display-error-details --config ./webpack/webpack.config.server.production.babel.js",
-    "production-server": "better-npm-run production-server"
+  "name": "react-universally",
+  "version": "13.0.0",
+  "description": "A starter kit for universal react applications.",
+  "main": "build/server/index.js",
+  "engines": {
+    "node": ">=6"
   },
-  "betterScripts": {
-    "development-build-server": {
-      "env": {
-        "NODE_PATH": "./src"
-      },
-      "command": "webpack --config ./webpack/webpack.config.server.development.babel.js --watch --colors --display-error-details"
-    },
-    "development-server": {
-      "env": {
-        "NODE_PATH": "es6"
-      },
-      "command": "nodemon ./src/server/start.babel.js --watch ./webroot/build/client ./src/server"
-    },
-    "production-server": {
-      "env": {
-        "NODE_PATH": "./src"
-      },
-      "command": "node ./src/server/start.babel.js"
+  "scripts": {
+    "analyze:client": "babel-node internal/scripts/analyze --client",
+    "analyze:server": "babel-node internal/scripts/analyze --server",
+    "build": "babel-node internal/scripts/build --optimize",
+    "build:dev": "babel-node internal/scripts/build",
+    "clean": "babel-node internal/scripts/clean",
+    "deploy": "babel-node internal/scripts/deploy",
+    "develop": "cross-env DEPLOYMENT=development babel-node internal/development",
+    "lint": "eslint client server shared config internal",
+    "precommit": "lint-staged",
+    "preinstall": "node internal/scripts/preinstall",
+    "prepush": "jest",
+    "start": "cross-env NODE_ENV=production node build/server",
+    "test": "jest",
+    "test:coverage": "jest --coverage"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier-eslint --write",
+      "git add"
+    ]
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}"
+    ],
+    "snapshotSerializers": [
+      "<rootDir>/node_modules/enzyme-to-json/serializer"
+    ],
+    "testPathIgnorePatterns": [
+      "<rootDir>/(build|internal|node_modules|flow-typed|public)/"
+    ],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/internal/jest/assetMock.js",
+      "\\.(css|scss)$": "<rootDir>/internal/jest/styleMock.js"
     }
   },
-  "author": "benja280@gmail.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ctrlplusb/react-universally.git"
+  },
+  "keywords": [
+    "react",
+    "boilerplate",
+    "starter kit",
+    "universal",
+    "javascript",
+    "express",
+    "webpack"
+  ],
+  "contributors": [
+    {
+      "name": "Alin Porumb",
+      "url": "https://github.com/alinporumb"
+    },
+    {
+      "name": "Benjamin Kniffler",
+      "url": "https://github.com/bkniffler"
+    },
+    {
+      "name": "Carson Perrotti",
+      "url": "https://github.com/carsonperrotti"
+    },
+    {
+      "name": "Christian Glombek",
+      "url": "https://github.com/LorbusChris"
+    },
+    {
+      "name": "Christoph Werner",
+      "url": "https://github.com/codepunkt"
+    },
+    {
+      "name": "David Edmondson",
+      "url": "https://github.com/threehams"
+    },
+    {
+      "name": "Dion Dirza",
+      "url": "https://github.com/diondirza"
+    },
+    {
+      "name": "Evgeny Boxer",
+      "url": "https://github.com/evgenyboxer"
+    },
+    {
+      "name": "Joe Kohlmann",
+      "url": "https://github.com/kohlmannj"
+    },
+    {
+      "name": "Lucian Lature",
+      "url": "https://github.com/lucianlature"
+    },
+    {
+      "name": "Steven Enten",
+      "url": "https://github.com/enten"
+    },
+    {
+      "name": "Sean Matheson",
+      "url": "https://github.com/ctrlplusb"
+    },
+    {
+      "name": "Steven Truesdell",
+      "url": "https://github.com/strues"
+    },
+    {
+      "name": "Tom",
+      "url": "https://github.com/datoml"
+    }
+  ],
   "license": "MIT",
-  "devDependencies": {
-    "autoprefixer": "^7.0.1",
-    "babel-cli": "^6.24.1",
-    "babel-core": "^6.24.1",
-    "babel-loader": "^7.0.0",
+  "bugs": {
+    "url": "https://github.com/ctrlplusb/react-universally/issues"
+  },
+  "homepage": "https://github.com/ctrlplusb/react-universally#readme",
+  "dependencies": {
+    "app-root-dir": "1.0.2",
+    "babel-plugin-module-resolver": "^2.7.1",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
-    "babel-polyfill": "^6.23.0",
-    "babel-preset-env": "^1.4.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
     "babel-preset-stage-1": "^6.24.1",
-    "better-npm-run": "^0.0.15",
-    "browser-sync": "^2.18.8",
-    "clean-webpack-plugin": "^0.1.16",
-    "cross-env": "^4.0.0",
-    "css-loader": "^0.28.1",
+    "bootstrap": "4.0.0-alpha.6",
+    "colors": "1.1.2",
+    "compression": "1.6.2",
+    "connected-react-router": "^4.2.1",
+    "cross-env": "^5.0.0",
+    "dotenv": "4.0.0",
+    "express": "4.15.2",
+    "helmet": "3.5.0",
+    "hpp": "0.2.1",
+    "modernizr": "3.4.0",
+    "normalize.css": "6.0.0",
+    "normalizr": "^3.2.3",
+    "offline-plugin": "4.6.2",
+    "parallax-js": "https://github.com/wagerfield/parallax",
+    "react": "15.4.2",
+    "react-async-bootstrapper": "1.0.1",
+    "react-async-component": "1.0.0-beta.1",
+    "react-dom": "15.4.2",
+    "react-helmet": "5.0.2",
+    "react-redux": "^5.0.5",
+    "react-router-dom": "4.0.0",
+    "react-slick": "^0.14.11",
+    "redux": "^3.6.0",
+    "redux-actions": "^2.0.3",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.2.0",
+    "sass-loader": "^6.0.5",
+    "serialize-javascript": "1.3.0",
+    "uuid": "3.0.1",
+    "wpapi": "^1.1.0"
+  },
+  "devDependencies": {
+    "assets-webpack-plugin": "3.5.1",
+    "autoprefixer": "^7.1.1",
+    "babel-cli": "6.24.0",
+    "babel-core": "6.24.0",
+    "babel-eslint": "7.2.1",
+    "babel-jest": "19.0.0",
+    "babel-loader": "6.4.1",
+    "babel-plugin-transform-react-constant-elements": "6.23.0",
+    "babel-plugin-transform-react-inline-elements": "6.22.0",
+    "babel-plugin-transform-react-jsx-self": "6.22.0",
+    "babel-plugin-transform-react-jsx-source": "6.22.0",
+    "babel-polyfill": "6.23.0",
+    "babel-preset-env": "1.3.2",
+    "babel-preset-react": "6.23.0",
+    "babel-preset-stage-3": "6.22.0",
+    "babel-template": "6.23.0",
+    "browser-sync": "^2.18.12",
+    "chokidar": "1.6.1",
+    "css-loader": "0.28.0",
     "csswring": "^6.0.0",
-    "extract-text-webpack-plugin": "^2.1.0",
-    "file-loader": "^0.11.1",
-    "html-webpack-plugin": "^2.28.0",
-    "img-loader": "^2.0.0",
-    "node-sass": "^4.5.2",
-    "nodemon": "^1.11.0",
-    "npm-run-all": "^4.0.2",
+    "enzyme": "2.8.0",
+    "enzyme-to-json": "1.5.0",
+    "eslint": "3.19.0",
+    "eslint-config-airbnb": "14.1.0",
+    "eslint-plugin-import": "2.2.0",
+    "eslint-plugin-jsx-a11y": "4.0.0",
+    "eslint-plugin-react": "6.10.3",
+    "extract-text-webpack-plugin": "2.1.0",
+    "file-loader": "0.11.1",
+    "glob": "7.1.1",
+    "happypack": "3.0.3",
+    "html-webpack-plugin": "2.28.0",
+    "husky": "0.13.3",
+    "jest": "19.0.2",
+    "lint-staged": "3.4.0",
+    "md5": "2.2.1",
+    "modernizr-loader": "1.0.1",
+    "node-notifier": "5.1.2",
+    "node-sass": "^4.5.3",
     "postcss-flexbugs-fixes": "^3.0.0",
     "postcss-loader": "^2.0.5",
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4",
-    "react-hot-loader": "next",
-    "react-redux": "^5.0.4",
-    "redux": "^3.6.0",
-    "redux-thunk": "^2.2.0",
-    "rimraf": "^2.6.1",
-    "run-p": "^0.0.0",
-    "sass-loader": "^6.0.3",
-    "sass-resources-loader": "^1.2.1",
-    "style-loader": "^0.17.0",
-    "url-loader": "^0.5.8",
-    "webpack": "^2.5.1",
-    "webpack-dev-middleware": "^1.10.2",
-    "webpack-dev-server": "^2.4.5",
-    "webpack-hot-middleware": "^2.18.0"
-  },
-  "dependencies": {
-    "bootstrap": "4.0.0-alpha.6",
-    "bunyan": "^1.8.10",
-    "connected-react-router": "^4.2.1",
-    "happypack": "^3.0.3",
-    "node-fetch": "^1.6.3",
-    "normalizr": "^3.2.2",
-    "parallax-js": "https://github.com/thehink/parallax.git",
-    "print-error": "^0.1.11",
-    "react-async-bootstrapper": "^1.1.1",
-    "react-async-component": "^1.0.0-beta.3",
-    "react-helmet": "^5.0.3",
-    "react-history": "^0.18.2",
-    "react-router": "next",
-    "react-router-dom": "next",
-    "react-router-redux": "^4.0.8",
-    "react-slick": "^0.14.11",
-    "redux-actions": "^2.0.3",
-    "redux-logger": "^3.0.1",
-    "serialize-javascript": "^1.3.0",
-    "slick-carousel": "^1.6.0",
-    "universal-webpack": "^0.3.9",
-    "wpapi": "^1.0.3"
+    "prettier": "0.22.0",
+    "prettier-eslint": "4.4.0",
+    "prettier-eslint-cli": "3.2.0",
+    "prop-types": "^15.5.10",
+    "react-addons-test-utils": "15.4.2",
+    "react-hot-loader": "3.0.0-beta.6",
+    "redux-mock-store": "^1.2.3",
+    "regenerator-runtime": "0.10.3",
+    "rimraf": "2.6.1",
+    "semver": "5.3.0",
+    "source-map-support": "0.4.14",
+    "style-loader": "0.16.1",
+    "svgo": "^0.7.2",
+    "webpack": "2.3.3",
+    "webpack-bundle-analyzer": "2.3.1",
+    "webpack-dev-middleware": "1.10.1",
+    "webpack-hot-middleware": "2.18.0",
+    "webpack-md5-hash": "0.0.5",
+    "webpack-node-externals": "1.5.4"
   }
 }
