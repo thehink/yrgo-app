@@ -13,6 +13,8 @@ const cspConfig = {
     defaultSrc: ["'self'", config('wordpressHost')],
     imgSrc: [
       "'self'",
+      'data:',
+      config('wordpressHost'),
       // If you use Base64 encoded images (i.e. inlined images), then you will
       // need the following:
       // 'data:',
