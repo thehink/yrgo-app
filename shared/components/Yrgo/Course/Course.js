@@ -75,11 +75,11 @@ export default class Course extends Component {
       <div className={`${styles.wrapper} max-width`}>
 
         <div className={'row'}>
-          <div className={'col-8 p-0'}>
+          <div className={'col-xs-12 col-md-8 p-0'}>
             <h1>{course.title.rendered}</h1>
             <small className="sub-heading">Subheading</small>
           </div>
-          <div className={'col-4 p-0'}>
+          <div className={'col-xs-12 col-md-4 p-0 mt-5 mt-md-0'}>
             <Button>
               <a href="#">Ansök Nu</a>
             </Button>
@@ -133,12 +133,21 @@ export default class Course extends Component {
         <div className={'row p-0 mt-5'}>
           <div className={'col-4'}>
             <h3>Kurser</h3>
+            <p>
+              {course.acf.courses}
+            </p>
           </div>
           <div className={'col-4'}>
             <h3>Behörighet</h3>
+            <p>
+              {course.acf.requirements}
+            </p>
           </div>
           <div className={'col-4'}>
             <h3>Kontakt</h3>
+            <p>
+              {course.acf.contact}
+            </p>
           </div>
         </div>
 
