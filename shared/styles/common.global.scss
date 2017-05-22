@@ -3,9 +3,16 @@
 h1, .heading1 {
   color: $yrgo-red;
   font-size: 36px;
+  margin: 0;
 }
 
 h2, .heading2 {
+  color: $yrgo-red;
+  font-size: 24px;
+  margin: 0;
+}
+
+h3, .heading3{
   color: $yrgo-red;
   font-size: 24px;
 }
@@ -17,6 +24,12 @@ h2, .heading2 {
 
   .row {
     margin: 0;
+
+    & > div {
+      &:first-child{
+        //padding-right: 40px !important;
+      }
+    }
   }
 }
 
@@ -29,4 +42,20 @@ a, button > a {
   font-size: 16px;
   line-height: 22px;
   color: #4A4A4A;
+}
+
+#nprogress {
+  pointer-events: none;
+}
+
+#nprogress .bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 2px;
+
+  background: $yrgo-red;
+  z-index: 99999;
 }

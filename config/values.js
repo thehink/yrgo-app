@@ -26,12 +26,14 @@ const values = {
     htmlPage: true,
 
     wordpressApi: true,
+    wordpressHost: true,
   },
 
   // we will create a proxy for api & admin interface
   internalWordpressServer: EnvVars.string('INTERNAL_WORDPRESS_SERVER', 'http://localhost/'),
 
   wordpressApi: EnvVars.string('WORDPRESS_API', 'http://localhost/wp-json'),
+  wordpressHost: EnvVars.string('WORDPRESS_HOST', 'localhost'),
 
   // The host on which the server should run.
   host: EnvVars.string('HOST', 'localhost'),

@@ -5,12 +5,12 @@ import config from '../../config';
 
 const cspConfig = {
   directives: {
-    childSrc: ["'self'"],
+    childSrc: ["'self'", config('wordpressHost')],
     // Note: Setting this to stricter than * breaks the service worker. :(
     // I can't figure out how to get around this, so if you know of a safer
     // implementation that is kinder to service workers please let me know.
     connectSrc: ['*'], // ["'self'", 'ws:'],
-    defaultSrc: ["'self'"],
+    defaultSrc: ["'self'", config('wordpressHost')],
     imgSrc: [
       "'self'",
       // If you use Base64 encoded images (i.e. inlined images), then you will
@@ -19,7 +19,7 @@ const cspConfig = {
     ],
     fontSrc: ["'self'"],
     objectSrc: ["'self'"],
-    mediaSrc: ["'self'"],
+    mediaSrc: ["'self'", config('wordpressHost')],
     manifestSrc: ["'self'"],
     scriptSrc: [
       // Allow scripts hosted from our application.

@@ -16,7 +16,7 @@ Schemas.type = new schema.Entity(
   {},
   {
     idAttribute: type => type.type.toLowerCase(),
-  },
+  }
 );
 
 Schemas.taxonomies = new schema.Entity(
@@ -24,7 +24,7 @@ Schemas.taxonomies = new schema.Entity(
   {},
   {
     idAttribute: taxonomy => taxonomy.name.toLowerCase(),
-  },
+  }
 );
 
 for (let type in wpapi) {
@@ -51,7 +51,7 @@ const createWpEntityStore = (name, type, initalParams, namespace = 'wp/v2') => {
 
   const action = (params, force) =>
     (dispatch, getState) => {
-      if (!force && getState().wp[name].id) {
+      if (!force && (getState().wp[name].id || getState().wp[name].error)) {
         return;
       }
 
@@ -59,7 +59,7 @@ const createWpEntityStore = (name, type, initalParams, namespace = 'wp/v2') => {
         request([requestType, successType, failureType], namespace, type, false, {
           ...initalParams,
           ...params,
-        }),
+        })
       );
     };
 
@@ -75,6 +75,7 @@ const createWpEntityStore = (name, type, initalParams, namespace = 'wp/v2') => {
       [requestType]: (state, action) => ({
         ...state,
         isFetching: true,
+        error: null,
       }),
 
       [successType]: (state, { payload, meta }) => ({
@@ -90,7 +91,7 @@ const createWpEntityStore = (name, type, initalParams, namespace = 'wp/v2') => {
         error: action.error,
       }),
     },
-    initialState,
+    initialState
   );
 
   return { action, reducer };
@@ -119,7 +120,7 @@ const createWpCollectionStore = (name, type, initalParams, namespace = 'wp/v2') 
         request([requestType, successType, failureType], namespace, type, true, {
           ...initalParams,
           ...params,
-        }),
+        })
       );
     };
 
@@ -150,7 +151,7 @@ const createWpCollectionStore = (name, type, initalParams, namespace = 'wp/v2') 
         error: action.error,
       }),
     },
-    initialState,
+    initialState
   );
 
   return { action, reducer };

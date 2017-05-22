@@ -1,9 +1,13 @@
 .wrapper {
   position: relative;
+
+  &:first-child > .buttonWrapper{
+    margin: 0 15px 31px 0;
+  }
 }
 
 .buttonWrapper {
-  margin: 0 0 31px 30px;
+  margin: 0 0 31px 15px;
 }
 
 .buttonWrapper {

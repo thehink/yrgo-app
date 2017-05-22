@@ -7,7 +7,7 @@ import styles from './image.scss';
 
 export default class Image extends Component {
   static propTypes = {
-    src: PropTypes.string.isRequired,
+    src: PropTypes.string,
   };
 
   static defaultProps = {};

@@ -4,6 +4,11 @@ import WPAPI from 'wpapi';
 import apiRoutes from 'assets/endpoints.json';
 import config from '../../../config';
 
+import NProgress from 'nprogress';
+
+const startProgress = () => process.env.BUILD_FLAG_IS_CLIENT === 'true' && NProgress.start();
+const stopProgress = () => process.env.BUILD_FLAG_IS_CLIENT === 'true' && NProgress.done();
+
 export const wpapi = new WPAPI({
   endpoint: config('wordpressApi'),
   routes: apiRoutes.routes,
@@ -21,8 +26,11 @@ const apiFetch = async ({ namespace, type, collection, method = 'get', schema, p
     apiFunction = apiFunction[key](params[key]);
   }
 
+  startProgress();
+
   try {
     let response = await apiFunction[method](body);
+    stopProgress();
 
     let meta = response._paging;
 
@@ -38,6 +46,7 @@ const apiFetch = async ({ namespace, type, collection, method = 'get', schema, p
       };
     }
   } catch (e) {
+    stopProgress();
     throw new Error(e);
   }
 };
@@ -70,7 +79,7 @@ export default store =>
               payload,
               meta,
               type: successType,
-            }),
+            })
           ),
         error =>
           next(
@@ -78,7 +87,7 @@ export default store =>
               type: failureType,
               payload: error.response,
               error: error.message || 'Something bad happened',
-            }),
-          ),
+            })
+          )
       );
     };

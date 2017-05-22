@@ -6,6 +6,7 @@ import Home from 'components/Home';
 import NotFound from 'components/NotFound';
 import EducationsMenu from 'components/EducationsMenu';
 import CourseCategory from 'components/CourseCategory';
+import Course from 'components/Course';
 
 export default () => {
   const asd = (
@@ -20,7 +21,7 @@ export default () => {
         <Route exact path="/course/category/:slug" component={CourseCategory} />
 
         {/* match educations */}
-        <Route exact path="/course/:slug" component={EducationsMenu} />
+        <Route exact path="/course/:slug" component={Course} />
 
         {/* match post */}
         <Route exact path="/:id(\d+)-:slug" component={Home} />
