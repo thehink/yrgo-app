@@ -16,7 +16,13 @@ const mapStateToProps = (state, ownProps) => {
     isFetching,
   } = state.wp.course;
 
-  const course = state.entities.courses[id];
+  const slug = ownProps.match.params.slug;
+
+  const course = state.wp.courses.ids
+    .map(id => state.entities.courses[id])
+    .find(course => course.slug === slug);
+
+  // const course = state.entities.courses[id];
 
   return {
     course,
@@ -40,13 +46,15 @@ export default class Course extends Component {
   }
 
   fetchData() {
-    if (this.props.isFetching) {
-      return true;
-    }
+    return true;
 
-    const slug = this.props.match.params.slug;
-
-    return this.props.fetchCourse({ slug });
+    // if (this.props.isFetching) {
+    //   return true;
+    // }
+    //
+    // const slug = this.props.match.params.slug;
+    //
+    // return this.props.fetchCourse({ slug });
   }
 
   render() {
@@ -68,7 +76,7 @@ export default class Course extends Component {
 
         <div className={'row'}>
           <div className={'col-8 p-0'}>
-            <h1>Digital Designer</h1>
+            <h1>{course.title.rendered}</h1>
             <small className="sub-heading">Subheading</small>
           </div>
           <div className={'col-4 p-0'}>
@@ -96,7 +104,7 @@ export default class Course extends Component {
         <div className={'row p-0 mt-5'}>
           <div className={'col-8 p-0'}>
             <h2>Om Utbildningen</h2>
-            <p>Description</p>
+            <p>{course.content.rendered}</p>
           </div>
           <div className={'col-4 p-0'}>
             <Image src={course.acf.thumbnail} />

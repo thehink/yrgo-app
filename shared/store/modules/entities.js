@@ -1,8 +1,11 @@
 import merge from 'lodash/merge';
+import uniq from 'lodash/uniq';
 
-const initialState = {
-  types: {},
-};
+import collections from './wpCollections';
+
+const initialState = {};
+
+collections.forEach(collection => initialState[collection.type] = {});
 
 export default (state = initialState, action) => {
   if (action.payload && action.payload.entities) {
