@@ -7,6 +7,8 @@ const { fetchCourse } = Actions;
 
 import Button from 'components/Button';
 import Image from 'components/Image';
+import Testimonial from 'components/Testimonial';
+import YrgoShadow from 'components/YrgoShadow';
 
 import styles from './course.scss';
 
@@ -47,7 +49,6 @@ export default class Course extends Component {
 
   fetchData() {
     return true;
-
     // if (this.props.isFetching) {
     //   return true;
     // }
@@ -86,7 +87,7 @@ export default class Course extends Component {
           </div>
         </div>
 
-        <div className={'row p-0 mt-5'}>
+        <div className={`row ${styles.informationRow}`}>
           <div className={'col-8 p-0'}>
             <Image src={course.acf.thumbnail} />
           </div>
@@ -103,26 +104,26 @@ export default class Course extends Component {
 
         <div className={'row p-0 mt-5'}>
           <div className={'col-8 p-0'}>
-            <h2>Om Utbildningen</h2>
+            <h2 className={styles.descriptionHeading}>Om Utbildningen</h2>
             <p>{course.content.rendered}</p>
           </div>
           <div className={'col-4 p-0'}>
-            <Image src={course.acf.thumbnail} />
+            <Image src={course.acf.thumbnail} aspect={1} />
           </div>
         </div>
 
-        <div className={'row p-0 mt-5'}>
+        <div className={`row ${styles.testimonialRow}`}>
           <div className={'col-8 p-0'}>
-            Testimonial
+            <Testimonial testimonials={[]} />
           </div>
           <div className={'col-4 p-0'}>
-            <Image src={course.acf.thumbnail} />
+            <Image src={course.acf.thumbnail} aspect={1} link={'http://instagram.com'} />
           </div>
         </div>
 
         <div className={'row p-0 mt-5'}>
           <div className={'col-8 p-0'}>
-            <h2>Arbetsmarknad & Lia</h2>
+            <h2 className={styles.descriptionHeading}>Arbetsmarknad & Lia</h2>
             <p>Lorem ipsum</p>
           </div>
           <div className={'col-4 p-0'}>
@@ -130,26 +131,26 @@ export default class Course extends Component {
           </div>
         </div>
 
-        <div className={'row p-0 mt-5'}>
-          <div className={'col-4'}>
-            <h3>Kurser</h3>
-            <p>
-              {course.acf.courses}
-            </p>
+        <YrgoShadow
+          className={`${styles.additionalInformation}`}
+          color={'yrgoLightGreen'}
+          offset={20}
+        >
+          <div className={`row ${styles.additionalInformationContent}`}>
+            <div className={'col-4'}>
+              <h3>Kurser</h3>
+              <p dangerouslySetInnerHTML={{ __html: course.acf.courses }} />
+            </div>
+            <div className={'col-4'}>
+              <h3>Behörighet</h3>
+              <p dangerouslySetInnerHTML={{ __html: course.acf.requirements }} />
+            </div>
+            <div className={'col-4'}>
+              <h3>Kontakt</h3>
+              <p dangerouslySetInnerHTML={{ __html: course.acf.contact }} />
+            </div>
           </div>
-          <div className={'col-4'}>
-            <h3>Behörighet</h3>
-            <p>
-              {course.acf.requirements}
-            </p>
-          </div>
-          <div className={'col-4'}>
-            <h3>Kontakt</h3>
-            <p>
-              {course.acf.contact}
-            </p>
-          </div>
-        </div>
+        </YrgoShadow>
 
       </div>
     );

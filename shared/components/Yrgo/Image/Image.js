@@ -8,15 +8,41 @@ import styles from './image.scss';
 export default class Image extends Component {
   static propTypes = {
     src: PropTypes.string,
+    aspect: PropTypes.number,
+    link: PropTypes.string,
   };
 
-  static defaultProps = {};
+  static defaultProps = {
+    aspect: 0.65,
+  };
 
   render() {
+    const {
+      src,
+      aspect,
+      link,
+    } = this.props;
+
     return (
       <div className={styles.wrapper}>
-        <YrgoShadow className={`${styles.imageWrapper}`} color={'yrgoLightGreen'} offset={20}>
-          <div className={styles.image} style={{ backgroundImage: `url(${this.props.src})` }} />
+        <YrgoShadow
+          className={`${styles.imageWrapper}`}
+          color={link ? 'yrgoRed' : 'yrgoLightGreen'}
+          hover={Boolean(link)}
+          offset={20}
+        >
+
+          {(link &&
+            <a
+              href={link}
+              className={styles.image}
+              style={{ backgroundImage: `url(${src})`, paddingBottom: `${aspect * 100}%` }}
+            />) ||
+            <div
+              className={styles.image}
+              style={{ backgroundImage: `url(${src})`, paddingBottom: `${aspect * 100}%` }}
+            />}
+
         </YrgoShadow>
       </div>
     );

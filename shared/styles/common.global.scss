@@ -25,7 +25,8 @@ h3, .heading3{
   margin: 0 auto;
 
   .row {
-    margin: 0;
+    margin-left: 0;
+    margin-right: 0;
 
     & > div {
       &:first-child{

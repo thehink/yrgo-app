@@ -25,6 +25,7 @@ const mapDispatchToProps = {
 
 export class App extends Component {
   asyncBootstrap() {
+    console.log('------------------------------------');
     // preload educations & categories
     return Promise.all([this.props.fetchCourseCategories(), this.props.fetchCourses()]);
   }
@@ -39,6 +40,7 @@ export class App extends Component {
       <app className="app">
         <Helmet>
           <title>Yrgo</title>
+          <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
         </Helmet>
         <Header />
         <main className={`${styles.container} container-fluid`}>
