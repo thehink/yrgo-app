@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="152" height="209" viewBox="0 0 152 209">
+  <g fill="none" fill-rule="evenodd" transform="rotate(13 18.428 188.328)">
+    <rect width="111.155" height="187.375" fill="#FFFFFF" stroke="#000000" stroke-width="1.404" rx=".702"/>
+    <rect width="98.491" height="38.039" x="6.332" y="33.812" fill="#FFFFFF" stroke="#000000" stroke-width="1.404"/>
+    <rect width="98.491" height="28.881" x="6.332" y="33.812" fill="#FFFFFF" stroke="#000000" stroke-width="1.404"/>
+    <rect width="16.181" height="31.699" x="87.939" y="145.815" fill="#FFFFFF" stroke="#000000" stroke-width="1.404"/>
+    <g fill="#FFFFFF" stroke="#000000" stroke-width="1.404" transform="translate(7.035 77.486)">
+      <rect width="16.181" height="13.384" y="13.384" rx=".702"/>
+      <rect width="16.181" height="9.399" rx=".702"/>
+      <rect width="16.181" height="13.384" y="31.699" rx=".702"/>
+      <rect width="16.181" height="13.384" y="50.014" rx=".702"/>
+      <rect width="16.181" height="13.384" y="68.329" rx=".702"/>
+      <rect width="16.181" height="13.384" y="86.643" rx=".702"/>
+      <rect width="16.181" height="13.384" x="20.402" y="13.384" rx=".702"/>
+      <rect width="16.181" height="9.399" x="20.402" rx=".702"/>
+      <rect width="16.181" height="13.384" x="20.402" y="31.699" rx=".702"/>
+      <rect width="16.181" height="13.384" x="20.402" y="50.014" rx=".702"/>
+      <rect width="16.181" height="13.384" x="20.402" y="68.329" rx=".702"/>
+      <rect width="16.181" height="13.384" x="20.402" y="86.643" rx=".702"/>
+      <rect width="16.181" height="13.384" x="40.804" y="13.384" rx=".702"/>
+      <rect width="16.181" height="9.399" x="40.804" rx=".702"/>
+      <rect width="16.181" height="13.384" x="40.804" y="31.699" rx=".702"/>
+      <rect width="16.181" height="13.384" x="40.804" y="50.014" rx=".702"/>
+      <rect width="16.181" height="13.384" x="40.804" y="68.329" rx=".702"/>
+      <rect width="16.181" height="13.384" x="40.804" y="86.643" rx=".702"/>
+      <rect width="16.181" height="13.384" x="60.502" y="13.384" rx=".702"/>
+      <rect width="16.181" height="9.399" x="60.502" rx=".702"/>
+      <rect width="16.181" height="13.384" x="61.205" y="31.699" rx=".702"/>
+      <rect width="16.181" height="13.384" x="61.205" y="50.014" rx=".702"/>
+      <rect width="16.181" height="13.384" x="61.205" y="68.329" rx=".702"/>
+      <rect width="16.181" height="13.384" x="61.205" y="86.643" rx=".702"/>
+      <rect width="16.181" height="13.384" x="80.904" y="13.384" rx=".702"/>
+      <rect width="16.181" height="9.399" x="80.904" rx=".702"/>
+      <rect width="16.181" height="13.384" x="80.904" y="31.699" rx=".702"/>
+      <rect width="16.181" height="13.384" x="80.904" y="50.014" rx=".702"/>
+      <rect width="16.181" height="31.699" x="80.904" y="68.329" rx=".702"/>
+    </g>
+    <g stroke="#000000" transform="translate(57.688 9.157)">
+      <rect width="43.618" height="15.497" stroke-width="1.404"/>
+      <path stroke-width=".702" d="M10.2008949.336895829L10.2008949 15.4972081M22.1605648.336895829L22.1605648 15.4972081M34.1202348.336895829L34.1202348 15.4972081" stroke-linecap="square"/>
+    </g>
+    <g fill="#000000" stroke="#000000" stroke-width=".702" transform="translate(92.16 158.494)">
+      <rect width="1" height="7.044" x="3.518"/>
+      <rect width="1" height="7.044" x="3.518" transform="rotate(90 3.87 3.522)"/>
+    </g>
+    <text fill="#000000" font-family="Digital-7" font-size="25.272">
+      <tspan x="18.291" y="56.039">0000000</tspan>
+    </text>
+    <text fill="#000000" font-family="Helvetica-Bold, Helvetica" font-size="9.828" font-weight="bold">
+      <tspan x="11.256" y="138.204">C</tspan>
+    </text>
+    <text fill="#000000" font-family="Helvetica-Bold, Helvetica" font-size="8.424" font-weight="bold" letter-spacing="-.702">
+      <tspan x="9.146" y="155.928">A</tspan> <tspan x="14.527" y="155.928">C</tspan>
+    </text>
+  </g>
+</svg>

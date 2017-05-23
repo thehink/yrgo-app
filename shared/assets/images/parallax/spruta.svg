@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="158" height="213" viewBox="0 0 158 213">
+  <g fill="none" fill-rule="evenodd" transform="rotate(-34 58.958 30.81)">
+    <rect width="37.208" height="113.831" x="20.359" y="37.944" fill="#FFFFFF" stroke="#000000" stroke-width="1.404"/>
+    <rect width="35.101" height="35.133" x="21.061" y="2.811" fill="#FFFFFF" stroke="#000000" stroke-width="1.404"/>
+    <rect width="77.223" height="2.811" y="35.133" fill="#FFFFFF" stroke="#000000" stroke-width="1.404" rx=".702"/>
+    <rect width="57.566" height="2.811" x="9.828" fill="#FFFFFF" stroke="#000000" stroke-width="1.404" rx=".702"/>
+    <rect width="22.465" height="9.135" x="28.081" y="151.774" fill="#FFFFFF" stroke="#000000" stroke-width="1.404"/>
+    <rect width="8.424" height="16.161" x="35.101" y="160.909" fill="#FFFFFF" stroke="#000000" stroke-width="1.404"/>
+    <path stroke="#000000" stroke-width="1.404" d="M39.3136196,177.42102 L39.3136196,235.390264" stroke-linecap="square"/>
+    <rect width="37.208" height="4.919" x="20.359" y="114.533" fill="#000000"/>
+    <g stroke="#000000" stroke-width="1.404" transform="translate(44.228 42.16)" stroke-linecap="square">
+      <path d="M12.987535.702657505L5.61623137.702657505M12.987535 34.4302177L5.61623137 34.4302177M12.987535 68.157778L0 68.157778M12.987535 17.5664376L0 17.5664376M12.987535 51.2939979L5.61623137 51.2939979M12.987535 85.0215581L5.61623137 85.0215581M12.987535 9.13454757L5.61623137 9.13454757M12.987535 42.8621078L0 42.8621078M12.987535 76.589668L5.61623137 76.589668M12.987535 25.9983277L5.61623137 25.9983277M12.987535 59.7258879L5.61623137 59.7258879M12.987535 93.4534482L0 93.4534482M12.987535 101.885338L5.61623137 101.885338"/>
+    </g>
+  </g>
+</svg>

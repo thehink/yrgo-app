@@ -8,39 +8,56 @@
 
 
   & > div{
-    position: absolute;
-    display: block;
-    left: 0px;
-    top: 0px;
-    overflow: visible;
-    width: 200%;
-    margin-left: -300px;
+    // position: absolute;
+    // display: block;
+    // left: 0px;
+    // top: 0px;
+    // overflow: visible;
+    // width: 200%;
+    // margin-left: -300px;
 
-    div{
-      padding-top: 700px;
-      width: 100%;
-      background-image: url('https://madebyfew.com//content/themes/few-press/resources/assets/images/characters_tile_compressed.png');
-      background-repeat: repeat-x;
-      background-color: transparent;
-      background-position: 605px bottom;
-      background-size: 1000px;
+    // div{
+    //   padding-top: 700px;
+    //   width: 100%;
+    //   background-image: url('https://madebyfew.com//content/themes/few-press/resources/assets/images/characters_tile_compressed.png');
+    //   background-repeat: repeat-x;
+    //   background-color: transparent;
+    //   background-position: 605px bottom;
+    //   background-size: 1000px;
+    //
+    //
+    //   &.layer1 {
+    //     padding-top: 600px;
+    //     background-position: 305px bottom;
+    //   }
+    //
+    //   &.layer2 {
+    //     padding-top: 700px;
+    //     background-position: 705px bottom;
+    //   }
+    //
+    //   &.layer3 {
+    //     padding-top: 800px;
+    //     background-position: 105px bottom;
+    //   }
+    // }
+  }
+}
 
+.image {
+  position: absolute;
+  height: 100px;
+  width: 100px;
 
-      &.layer1 {
-        padding-top: 600px;
-        background-position: 305px bottom;
-      }
+  background-size: contain;
+  background-repeat: no-repeat;
 
-      &.layer2 {
-        padding-top: 700px;
-        background-position: 705px bottom;
-      }
+  &.kalkylator {
+    background-image: url('assets/images/parallax/kalkylator.svg');
+  }
 
-      &.layer3 {
-        padding-top: 800px;
-        background-position: 105px bottom;
-      }
-    }
+  &.kalkylatorShadow {
+    background-image: url('assets/images/parallax/kalkylator skugga.svg');
   }
 }
 
