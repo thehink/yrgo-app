@@ -14,6 +14,7 @@ import SubjectCategory from 'components/SubjectCategories/SubjectCategory';
 import FrontPageDescription from 'components/FrontPageDescription';
 import Video from 'components/Video';
 import NewsFeed from 'components/NewsFeed';
+import CoolMessage from 'components/CoolMessage';
 
 import styles from './home.scss';
 
@@ -94,9 +95,10 @@ export default class Home extends Component {
     return (
       <div className={styles.wrapper}>
         <Parallax />
+        <CoolMessage />
         <div className={`${styles.categoryRow} row max-width`}>
           <div className="col-xs-12 col-md-6">
-            <Image src={image} />
+            <Image src={image} aspect={1} />
           </div>
           <div className="col-xs-12 col-md-6 mt-5 mt-md-0">
             <SubjectCategories>

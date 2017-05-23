@@ -41,11 +41,46 @@ export default class Parallax extends Component {
           this.scene = el;
         }}
       >
-        <Layer data-depth={0.1} x={0.5} y={0.5}>
+        <Layer depth={0.1} x={0.5} y={0.5}>
           <div className={`${styles.image} ${styles.kalkylatorShadow}`} />
         </Layer>
-        <Layer data-depth={0.2} x={0.5} y={0.5}>
+        <Layer depth={0.15} x={0.5} y={0.5}>
           <div className={`${styles.image} ${styles.kalkylator}`} />
+        </Layer>
+
+        <Layer depth={0.1} x={0.3} y={0.1}>
+          <div className={`${styles.image} ${styles.matintstrumentShadow}`} />
+        </Layer>
+        <Layer depth={0.15} x={0.3} y={0.1}>
+          <div className={`${styles.image} ${styles.matintstrument}`} />
+        </Layer>
+
+        <Layer depth={0.1} x={0.7} y={0.5}>
+          <div className={`${styles.image} ${styles.pingisShadow}`} />
+        </Layer>
+        <Layer depth={0.15} x={0.7} y={0.5}>
+          <div className={`${styles.image} ${styles.pingis}`} />
+        </Layer>
+
+        <Layer depth={0.1} x={0.2} y={0.7}>
+          <div className={`${styles.image} ${styles.plingShadow}`} />
+        </Layer>
+        <Layer depth={0.15} x={0.2} y={0.7}>
+          <div className={`${styles.image} ${styles.pling}`} />
+        </Layer>
+
+        <Layer depth={0.1} x={0.4} y={0.8}>
+          <div className={`${styles.image} ${styles.sprutaShadow}`} />
+        </Layer>
+        <Layer depth={0.15} x={0.4} y={0.8}>
+          <div className={`${styles.image} ${styles.spruta}`} />
+        </Layer>
+
+        <Layer depth={0.2} x={0.1} y={0.3}>
+          <div className={`${styles.image} ${styles.kameraShadow}`} />
+        </Layer>
+        <Layer depth={0.25} x={0.1} y={0.3}>
+          <div className={`${styles.image} ${styles.kamera}`} />
         </Layer>
       </div>
     );

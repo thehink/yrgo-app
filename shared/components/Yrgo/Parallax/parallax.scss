@@ -1,53 +1,15 @@
 
 .wrapper{
   position: relative;
-  background: #D8D8D8;
-  max-height: 572px;
-  min-height: 572px;
+  //background: #D8D8D8;
+  height: 800px;
   overflow: hidden;
-
-
-  & > div{
-    // position: absolute;
-    // display: block;
-    // left: 0px;
-    // top: 0px;
-    // overflow: visible;
-    // width: 200%;
-    // margin-left: -300px;
-
-    // div{
-    //   padding-top: 700px;
-    //   width: 100%;
-    //   background-image: url('https://madebyfew.com//content/themes/few-press/resources/assets/images/characters_tile_compressed.png');
-    //   background-repeat: repeat-x;
-    //   background-color: transparent;
-    //   background-position: 605px bottom;
-    //   background-size: 1000px;
-    //
-    //
-    //   &.layer1 {
-    //     padding-top: 600px;
-    //     background-position: 305px bottom;
-    //   }
-    //
-    //   &.layer2 {
-    //     padding-top: 700px;
-    //     background-position: 705px bottom;
-    //   }
-    //
-    //   &.layer3 {
-    //     padding-top: 800px;
-    //     background-position: 105px bottom;
-    //   }
-    // }
-  }
 }
 
 .image {
-  position: absolute;
-  height: 100px;
-  width: 100px;
+  position: relative;
+  height: 200px;
+  width: 200px;
 
   background-size: contain;
   background-repeat: no-repeat;
@@ -58,6 +20,46 @@
 
   &.kalkylatorShadow {
     background-image: url('assets/images/parallax/kalkylator skugga.svg');
+  }
+
+  &.kamera {
+    background-image: url('assets/images/parallax/kamera.svg');
+  }
+
+  &.kameraShadow {
+    background-image: url('assets/images/parallax/kamera skugga.svg');
+  }
+
+  &.matintstrument {
+    background-image: url('assets/images/parallax/matintstrument.svg');
+  }
+
+  &.matintstrumentShadow {
+    background-image: url('assets/images/parallax/matintstrument skugga.svg');
+  }
+
+  &.pingis {
+    background-image: url('assets/images/parallax/pingis.svg');
+  }
+
+  &.pingisShadow {
+    background-image: url('assets/images/parallax/pingis skugga.svg');
+  }
+
+  &.pling {
+    background-image: url('assets/images/parallax/pling.svg');
+  }
+
+  &.plingShadow {
+    background-image: url('assets/images/parallax/pling skugga.svg');
+  }
+
+  &.spruta {
+    background-image: url('assets/images/parallax/spruta.svg');
+  }
+
+  &.sprutaShadow {
+    background-image: url('assets/images/parallax/spruta skugga.svg');
   }
 }
 

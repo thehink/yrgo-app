@@ -16,7 +16,7 @@ export default class Video extends Component {
     } = this.props;
 
     return (
-      <div className={styles.wrapper}>
+      <div className={`${styles.wrapper}`}>
         <YrgoShadow className={`${styles.contentWrapper}`} color={'yrgoLightGreen'} offset={20}>
           <iframe src={`${url}?rel=0&amp;showinfo=0`} width="100%" height="100%" frameBorder="0" />
         </YrgoShadow>

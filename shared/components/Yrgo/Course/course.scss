@@ -1,3 +1,6 @@
+@import "~styles/variables";
+@import "~bootstrap/scss/mixins";
+
 .wrapper {
   margin-top: 144px;
 
@@ -10,11 +13,23 @@
 }
 
 .informationRow {
-  margin-top: 70px;
+  margin-top: 90px;
 }
 
 .testimonialRow {
   margin-top: 114px;
+}
+
+.testimonialWrapper {
+  padding-left: 0;
+}
+
+.aboutRow {
+  margin-top: 90px;
+}
+
+.partnersRow {
+  margin-top: 104px;
 }
 
 .descriptionHeading {
@@ -23,11 +38,23 @@
 
 
 .additionalInformation {
+
+  margin: 94px 60px 40px 60px;
+
+  @include media-breakpoint-down(md) {
+    margin: 94px 20px 40px 20px;
+  }
+
+
   .additionalInformationContent{
     width: 100%;
     background: #FFF;
     border: 1px solid #000000;
     padding: 44px;
+
+    @include media-breakpoint-down(md) {
+      padding: 10px;
+    }
 
     h3 {
       margin-top: 15px;
