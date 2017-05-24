@@ -1,13 +1,26 @@
+@import "~styles/variables";
+@import "~bootstrap/scss/mixins";
+
 .wrapper {
   position: absolute;
   top: 350px;
   width: 100%;
 
   text-align: center;
+  padding-right: 150px;
 
   font-size: 24px;
   color: #F52A3B;
   letter-spacing: 0;
+
+  line-height: 20px;
+
+  overflow: hidden;
+
+  @include media-breakpoint-down(md) {
+    font-size: 16px;
+    top: 230px;
+  }
 }
 
 .staticText {
@@ -24,31 +37,29 @@
   padding-left: 5px;
   text-transform: uppercase;
 
+  opacity: 0;
 
-  &.visible > span {
+  &.visible {
+    animation-name: change;
+    animation-duration: 4s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+  }
+}
+
+@keyframes change {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+
+  20%, 90% {
     opacity: 1;
     transform: translateY(0);
   }
 
-  & > span {
-    display: inline-block;
+  100% {
     opacity: 0;
     transform: translateY(-100%);
-    transition: all 0.25s cubic-bezier(0.65, 0, 0.21, 1.47) 0s;
-    min-width: 11px;
   }
-}
-
-$num: 1;
-
-@while $num < 20 {
-    .dynamicText > span:nth-of-type(#{$num}) {
-			transition-delay: 0.02s * $num;
-    }
-
-		.dynamicText.visible > span:nth-of-type(#{$num}) {
-			transition-delay: 0.03s * $num + 0.05;
-    }
-
-    $num: $num + 1;
 }

@@ -1,15 +1,22 @@
+@import "~styles/variables";
+@import "~bootstrap/scss/mixins";
 
 .wrapper{
   position: relative;
   //background: #D8D8D8;
   height: 800px;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .image {
   position: relative;
-  height: 200px;
-  width: 200px;
+  height: 300px;
+  width: 300px;
+
+  @include media-breakpoint-down(md) {
+    height: 135px;
+    width: 135px;
+  }
 
   background-size: contain;
   background-repeat: no-repeat;

@@ -36,7 +36,7 @@ export default class Partners extends Component {
 
     return (
       <div className={styles.wrapper}>
-        <h2>Samarbetspartners</h2>
+        <h2 className={styles.partnersHeading}>Samarbetspartners</h2>
         <Slider {...settings} className={styles.partnerWrapper}>
           {partners.map(this.renderPartner)}
         </Slider>

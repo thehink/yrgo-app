@@ -13,10 +13,11 @@ export default class CoolMessage extends Component {
   static defaultProps = {
     staticText: 'FÖR DIG SOM VILL',
     dynamicTexts: ['SKAFFA DIG ETT YRKE', 'DO SOMETHING', 'SAY WHAAT'],
-    interval: 1000,
+    interval: 4000,
   };
 
   state = {
+    lastText: 0,
     activeText: 0,
   };
 
@@ -29,6 +30,7 @@ export default class CoolMessage extends Component {
 
     this.setState({
       activeText: nextActiveText,
+      lastText: this.state.activeText,
     });
   }
 
@@ -37,15 +39,29 @@ export default class CoolMessage extends Component {
     this.interval = null;
   }
 
+  // {text
+  //   .split('')
+  //   .map((character, i) => <span key={`${text}_char_${character}_${i}`}>{character}</span>)}
+
   renderDynamicTexts(text, i) {
+    const {
+      activeText,
+      lastText,
+    } = this.state;
+
+    const {
+      interval,
+    } = this.props;
+
     return (
       <span
         key={text}
-        className={`${styles.dynamicText} ${(i === this.state.activeText && styles.visible) || ''}`}
+        className={
+          `${styles.dynamicText} ${((i === activeText || i === lastText) && styles.visible) || ''}`
+        }
+        style={{ animationDuration: `${interval + 600}ms` }}
       >
-        {text
-          .split('')
-          .map((character, i) => <span key={`${text}_char_${character}_${i}`}>{character}</span>)}
+        {text}
       </span>
     );
   }

@@ -89,10 +89,10 @@ export default class Course extends Component {
         </div>
 
         <div className={`row ${styles.informationRow}`}>
-          <div className={'col-8'}>
+          <div className={'col-xs-12 col-md-8'}>
             <Image src={course.acf.thumbnail} />
           </div>
-          <div className={'col-4'}>
+          <div className={'col-md-4'}>
             <div className="">
               <h2>Information</h2>
               <div className="asd">
@@ -104,30 +104,30 @@ export default class Course extends Component {
         </div>
 
         <div className={`row ${styles.aboutRow}`}>
-          <div className={'col-8'}>
+          <div className={'col-xs-12 col-md-8'}>
             <h2 className={styles.descriptionHeading}>Om Utbildningen</h2>
             <p dangerouslySetInnerHTML={{ __html: course.acf.about }} />
           </div>
-          <div className={'col-4'}>
+          <div className={'col-xs-12 col-md-4'}>
             <Image src={course.acf.thumbnail} aspect={1} />
           </div>
         </div>
 
         <div className={`row ${styles.testimonialRow}`}>
-          <div className={`col-8 ${styles.testimonialWrapper}`}>
+          <div className={`col-xs-12 col-md-8 ${styles.testimonialWrapper}`}>
             <Testimonial testimonials={[]} />
           </div>
-          <div className={'col-4'}>
+          <div className={'col-xs-12 col-md-4'}>
             <Image src={course.acf.thumbnail} aspect={1} link={'http://instagram.com'} />
           </div>
         </div>
 
         <div className={`row ${styles.partnersRow}`}>
-          <div className={'col-8'}>
+          <div className={'col-xs-12 col-md-8'}>
             <h2 className={styles.descriptionHeading}>Arbetsmarknad & Lia</h2>
             <p dangerouslySetInnerHTML={{ __html: course.acf.lia }} />
           </div>
-          <div className={'col-4'}>
+          <div className={'col-xs-12 col-md-4'}>
             <Partners partners={course.acf.partners} />
           </div>
         </div>
