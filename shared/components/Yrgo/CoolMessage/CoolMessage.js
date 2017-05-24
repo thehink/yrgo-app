@@ -13,7 +13,7 @@ export default class CoolMessage extends Component {
   static defaultProps = {
     staticText: 'FÖR DIG SOM VILL',
     dynamicTexts: ['SKAFFA DIG ETT YRKE', 'DO SOMETHING', 'SAY WHAAT'],
-    interval: 4000,
+    interval: 2000,
   };
 
   state = {
@@ -59,7 +59,7 @@ export default class CoolMessage extends Component {
         className={
           `${styles.dynamicText} ${((i === activeText || i === lastText) && styles.visible) || ''}`
         }
-        style={{ animationDuration: `${interval + 600}ms` }}
+        style={{ animationDuration: `${interval + interval / 4}ms` }}
       >
         {text}
       </span>
