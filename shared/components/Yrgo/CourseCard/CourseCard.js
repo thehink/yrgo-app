@@ -11,11 +11,15 @@ export default class CourseCard extends Component {
     image: PropTypes.string,
     title: PropTypes.string,
     link: PropTypes.string,
+    titleClass: PropTypes.string,
+    imageClass: PropTypes.string,
   };
 
   render() {
     const {
       className,
+      titleClass,
+      imageClass,
       image,
       title,
       link,
@@ -29,8 +33,11 @@ export default class CourseCard extends Component {
         hover
       >
         <Link to={link} className={styles.link}>
-          <img className={styles.image} src={image} />
-          <div className={styles.title}>
+          <div
+            className={`${styles.image} ${imageClass || ''}`}
+            style={{ backgroundImage: `url(${image})` }}
+          />
+          <div className={`${styles.title} ${titleClass || ''}`}>
             {title}
           </div>
         </Link>

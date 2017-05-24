@@ -53,7 +53,7 @@ export default function webpackConfigFactory(buildOptions) {
   console.log(path.resolve(appRootDir.get(), 'shared', 'components'));
 
   console.log(
-    `==> Creating ${isProd ? 'an optimised' : 'a development'} bundle configuration for the "${target}"`,
+    `==> Creating ${isProd ? 'an optimised' : 'a development'} bundle configuration for the "${target}"`
   );
 
   const postcssPlugins = removeNil([
@@ -71,7 +71,7 @@ export default function webpackConfigFactory(buildOptions) {
     modules: true,
     sourceMap: true,
     importLoaders: 2,
-    localIdentName: '[name]__[local]___[hash:base64:5]',
+    localIdentName: isDev ? '[name]__[local]___[hash:base64:5]' : '[hash:base64:8]',
   };
 
   const sassOptions = {
@@ -122,7 +122,7 @@ export default function webpackConfigFactory(buildOptions) {
         // Required to support hot reloading of our client.
         ifDevClient(
           () =>
-            `webpack-hot-middleware/client?reload=true&path=http://${config('host')}:${config('clientDevServerPort')}/__webpack_hmr`,
+            `webpack-hot-middleware/client?reload=true&path=http://${config('host')}:${config('clientDevServerPort')}/__webpack_hmr`
         ),
         // The source entry file for the bundle.
         path.resolve(appRootDir.get(), bundleConfig.srcEntryFile),
@@ -145,7 +145,7 @@ export default function webpackConfigFactory(buildOptions) {
         // For any other bundle (typically a server/node) bundle we want a
         // determinable output name to allow for easier importing/execution
         // of the bundle by our scripts.
-        '[name].js',
+        '[name].js'
       ),
       // The name format for any additional chunks produced for the bundle.
       chunkFilename: '[name]-[chunkhash].js',
@@ -158,7 +158,7 @@ export default function webpackConfigFactory(buildOptions) {
         // bundles we need to use an absolute http path for the public path.
         `http://${config('host')}:${config('clientDevServerPort')}${config('bundles.client.webPath')}`,
         // Otherwise we expect our bundled client to be served from this path.
-        bundleConfig.webPath,
+        bundleConfig.webPath
       ),
     },
 
@@ -186,12 +186,12 @@ export default function webpackConfigFactory(buildOptions) {
         isDev ||
         // Allow for the following flag to force source maps even for production
         // builds.
-        config('includeSourceMapsForOptimisedClientBundle'),
+        config('includeSourceMapsForOptimisedClientBundle')
     )(
       // Produces an external source map (lives next to bundle output files).
       'source-map',
       // Produces no source map.
-      'hidden-source-map',
+      'hidden-source-map'
     ),
 
     // Performance budget feature.
@@ -204,7 +204,7 @@ export default function webpackConfigFactory(buildOptions) {
       // Enable webpack's performance hints for production client builds.
       { hints: 'warning' },
       // Else we have to set a value of "false" if we don't want the feature.
-      false,
+      false
     ),
 
     resolve: {
@@ -246,7 +246,7 @@ export default function webpackConfigFactory(buildOptions) {
               // And any items that have been whitelisted in the config need
               // to be included in the bundling process too.
               .concat(config('nodeExternalsFileTypeWhitelist') || []),
-          },
+          }
         )),
     ]),
 
@@ -262,7 +262,7 @@ export default function webpackConfigFactory(buildOptions) {
             banner: 'require("source-map-support").install();',
             raw: true,
             entryOnly: false,
-          }),
+          })
       ),
 
       // We use this so that our generated [chunkhash]'s are only different if
@@ -325,7 +325,7 @@ export default function webpackConfigFactory(buildOptions) {
           new AssetsPlugin({
             filename: config('bundleAssetsFileName'),
             path: path.resolve(appRootDir.get(), bundleConfig.outputPath),
-          }),
+          })
       ),
 
       // We don't want webpack errors to occur during development as it will
@@ -341,7 +341,7 @@ export default function webpackConfigFactory(buildOptions) {
         () =>
           new webpack.LoaderOptionsPlugin({
             minimize: true,
-          }),
+          })
       ),
 
       // For our production client we need to make sure we pass the required
@@ -361,7 +361,7 @@ export default function webpackConfigFactory(buildOptions) {
               comments: false,
               screw_ie8: true,
             },
-          }),
+          })
       ),
 
       // For the production build of the client we need to extract the CSS into
@@ -371,7 +371,7 @@ export default function webpackConfigFactory(buildOptions) {
           new ExtractTextPlugin({
             filename: '[name]-[chunkhash].css',
             allChunks: true,
-          }),
+          })
       ),
 
       // -----------------------------------------------------------------------
@@ -455,7 +455,7 @@ export default function webpackConfigFactory(buildOptions) {
                   'transform-object-rest-spread',
                 ].filter(x => x != null),
               },
-              buildOptions,
+              buildOptions
             ),
           },
         ],
@@ -561,8 +561,8 @@ export default function webpackConfigFactory(buildOptions) {
                 },
                 ...cssLoaders,
               ],
-            }),
-          ),
+            })
+          )
         ),
 
         ifElse(isClient || isServer)(
@@ -609,8 +609,8 @@ export default function webpackConfigFactory(buildOptions) {
                 },
                 ...cssLoaders,
               ],
-            }),
-          ),
+            })
+          )
         ),
 
         // ASSETS (Images/Fonts/etc)

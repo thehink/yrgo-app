@@ -59,7 +59,9 @@ export default class CoolMessage extends Component {
         className={
           `${styles.dynamicText} ${((i === activeText || i === lastText) && styles.visible) || ''}`
         }
-        style={{ animationDuration: `${interval + interval / 4}ms` }}
+        style={{
+          animationDuration: `${interval + interval / 4}ms`,
+        }}
       >
         {text}
       </span>

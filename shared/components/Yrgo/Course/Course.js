@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
+import { Link } from 'react-router-dom';
 import Actions from 'store/modules/wordpress';
 const { fetchCourse } = Actions;
 
@@ -10,6 +11,7 @@ import Image from 'components/Image';
 import Testimonial from 'components/Testimonial';
 import Partners from 'components/Partners';
 import YrgoShadow from 'components/YrgoShadow';
+import Portfolios from 'components/Portfolios';
 
 import styles from './course.scss';
 
@@ -83,7 +85,7 @@ export default class Course extends Component {
           </div>
           <div className={'col-xs-12 col-md-4 mt-5 mt-md-0'}>
             <Button>
-              <a href="#">Ansök Nu</a>
+              <Link to={`/course/${course.slug}/ansokan`}>Ansök Nu</Link>
             </Button>
           </div>
         </div>
@@ -152,6 +154,8 @@ export default class Course extends Component {
             </div>
           </div>
         </YrgoShadow>
+
+        <Portfolios portfolios={course.acf.portfolios} />
 
       </div>
     );
