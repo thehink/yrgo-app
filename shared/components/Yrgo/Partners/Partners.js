@@ -10,10 +10,10 @@ export default class Partners extends Component {
     partners: PropTypes.array,
   };
 
-  renderPartner(partner) {
+  renderPartner(partner, i) {
     return (
-      <div key={partner.name} className={styles.partner}>
-        <a href={partner.url} style={{ backgroundImage: `url(${partner.thumbnail})` }} />
+      <div key={`partner_${partner.id}_${i}`} className={styles.partner}>
+        <a href={partner.acf.url} style={{ backgroundImage: `url(${partner.acf.logo})` }} />
       </div>
     );
   }

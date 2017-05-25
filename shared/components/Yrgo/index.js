@@ -8,12 +8,18 @@ import EducationsMenu from 'components/EducationsMenu';
 import CourseCategory from 'components/CourseCategory';
 import Course from 'components/Course';
 import Application from 'components/Application';
+import CompanyMenu from 'components/CompanyMenu';
+import Contact from 'components/Contact';
+import About from 'components/About';
 
 export default () => {
   const asd = (
     <App>
       <Switch>
         <Route exact path="/" component={Home} />
+
+        {/* match educations */}
+        <Route exact path="/business" component={CompanyMenu} />
 
         {/* match educations */}
         <Route exact path="/courses" component={EducationsMenu} />
@@ -26,6 +32,12 @@ export default () => {
 
         {/* match post */}
         <Route exact path="/course/:slug/ansokan" component={Application} />
+
+        {/* match educations */}
+        <Route exact path="/contact" component={Contact} />
+
+        {/* match educations */}
+        <Route exact path="/about" component={About} />
 
         {/* match page */}
         <Route exact path="/(.*)/:slug" component={Home} />

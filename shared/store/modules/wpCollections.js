@@ -15,6 +15,16 @@ const collections = [
     params: {},
   },
   {
+    name: 'partner',
+    type: 'partners',
+    params: {},
+  },
+  {
+    name: 'staff',
+    type: 'staff',
+    params: {},
+  },
+  {
     name: 'home',
     type: 'pages',
     multi: false,

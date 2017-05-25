@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
+import without from 'lodash/without';
 import Actions from 'store/modules/wordpress';
-const { fetchCourse } = Actions;
+const { fetchCourse, fetchStaffs, fetchPartners } = Actions;
 
 import Button from 'components/Button';
 import Image from 'components/Image';
@@ -27,23 +28,39 @@ const mapStateToProps = (state, ownProps) => {
     .map(id => state.entities.courses[id])
     .find(course => course.slug === slug);
 
+  let contactPerson,
+    partners;
+
+  if (course) {
+    contactPerson = state.entities.staff[course.acf.contact_person];
+    partners = without(
+      course.acf.partners.map(partner => state.entities.partners[partner.partner]),
+      undefined
+    );
+  }
+
   // const course = state.entities.courses[id];
 
   return {
     course,
     isFetching,
+    contactPerson,
+    partners,
   };
 };
 
 const mapDispatchToProps = {
   fetchCourse,
+  fetchStaffs,
+  fetchPartners,
 };
 
 @withRouter
 @connect(mapStateToProps, mapDispatchToProps)
 export default class Course extends Component {
   asyncBootstrap() {
-    return this.fetchData();
+    // preload partners & staff
+    this.fetchData();
   }
 
   componentWillMount() {
@@ -51,20 +68,15 @@ export default class Course extends Component {
   }
 
   fetchData() {
-    return true;
-    // if (this.props.isFetching) {
-    //   return true;
-    // }
-    //
-    // const slug = this.props.match.params.slug;
-    //
-    // return this.props.fetchCourse({ slug });
+    return Promise.all([this.props.fetchPartners(), this.props.fetchStaffs()]);
   }
 
   render() {
     const {
       isFetching,
       course,
+      partners,
+      contactPerson,
     } = this.props;
 
     if (isFetching) {
@@ -130,7 +142,7 @@ export default class Course extends Component {
             <p dangerouslySetInnerHTML={{ __html: course.acf.lia }} />
           </div>
           <div className={'col-xs-12 col-md-4'}>
-            <Partners partners={course.acf.partners} />
+            {Boolean(partners.length) && <Partners partners={partners} />}
           </div>
         </div>
 
@@ -140,7 +152,7 @@ export default class Course extends Component {
           offset={20}
         >
           <div className={`row ${styles.additionalInformationContent}`}>
-            <div className={'col-xs-12 col-md-4'}>
+            <div className={'col-xs-12 col-md-4 pr-1'}>
               <h3>Kurser</h3>
               <p dangerouslySetInnerHTML={{ __html: course.acf.courses }} />
             </div>
