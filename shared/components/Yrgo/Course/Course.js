@@ -60,7 +60,7 @@ const mapDispatchToProps = {
 export default class Course extends Component {
   asyncBootstrap() {
     // preload partners & staff
-    this.fetchData();
+    return this.fetchData();
   }
 
   componentWillMount() {
@@ -96,7 +96,7 @@ export default class Course extends Component {
             <small className="sub-heading">Subheading</small>
           </div>
           <div className={'col-xs-12 col-md-4 mt-5 mt-md-0'}>
-            <Button>
+            <Button className="ml-5">
               <Link to={`/course/${course.slug}/ansokan`}>Ansök Nu</Link>
             </Button>
           </div>

@@ -18,6 +18,7 @@ export default class Image extends Component {
 
   render() {
     const {
+      className,
       src,
       aspect,
       link,
@@ -26,7 +27,7 @@ export default class Image extends Component {
     return (
       <div className={styles.wrapper}>
         <YrgoShadow
-          className={`${styles.imageWrapper}`}
+          className={`${styles.imageWrapper} ${className || ''}`}
           color={link ? 'yrgoRed' : 'yrgoLightGreen'}
           hover={Boolean(link)}
           offset={20}
