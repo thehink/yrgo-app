@@ -6,6 +6,7 @@ import camelCase from 'lodash/camelCase';
 import WPAPI from 'wpapi';
 import apiRoutes from 'assets/endpoints.json';
 import { wpapi, WP_API } from '../middleware/wpApi';
+import union from 'lodash/union';
 
 import collections from './wpCollections';
 
@@ -44,15 +45,18 @@ const request = ([requestType, failureType, successType], namespace, type, colle
   },
 });
 
-const createWpEntityStore = (name, type, initalParams, namespace = 'wp/v2') => {
+const createWpEntityStore = (name, type, initalParams = {}, namespace = 'wp/v2') => {
   const requestType = `WP/REQUEST/ENTITY/${name}/REQUEST`;
   const successType = `WP/REQUEST/ENTITY/${name}/SUCCESS`;
   const failureType = `WP/REQUEST/ENTITY/${name}/FAILURE`;
 
   const action = (params, force) =>
     (dispatch, getState) => {
-      if (!force && (getState().wp[name].id || getState().wp[name].error)) {
-        return;
+      if (
+        (!force && (getState().wp[name].id || getState().wp[name].error)) ||
+        getState().wp[name].isFetching
+      ) {
+        return Promise.resolve();
       }
 
       return dispatch(
@@ -97,23 +101,17 @@ const createWpEntityStore = (name, type, initalParams, namespace = 'wp/v2') => {
   return { action, reducer };
 };
 
-const createWpCollectionStore = (name, type, initalParams, namespace = 'wp/v2') => {
+const createWpCollectionStore = (name, type, initalParams = {}, namespace = 'wp/v2') => {
   const requestType = `WP/REQUEST/${name}/REQUEST`;
   const successType = `WP/REQUEST/${name}/SUCCESS`;
   const failureType = `WP/REQUEST/${name}/FAILURE`;
 
-  const deleteRequestType = `WP/DELETE/${name}/REQUEST`;
-  const deleteSuccessType = `WP/DELETE/${name}/SUCCESS`;
-  const deleteFailureType = `WP/DELETE/${name}/FAILURE`;
-
-  const updateRequestType = `WP/UPDATE/${name}/REQUEST`;
-  const updateSuccessType = `WP/UPDATE/${name}/SUCCESS`;
-  const updateFailureType = `WP/UPDATE/${name}/FAILURE`;
+  const entitySuccessType = `WP/REQUEST/ENTITY/${name}/SUCCESS`;
 
   const action = (params, force) =>
     (dispatch, getState) => {
-      if (!force && getState().wp[name].ids.length !== 0) {
-        return;
+      if (!force && getState().wp[`${name}s`].ids.length !== 0) {
+        return Promise.resolve();
       }
 
       return dispatch(
@@ -141,7 +139,14 @@ const createWpCollectionStore = (name, type, initalParams, namespace = 'wp/v2') 
       [successType]: (state, { payload, meta }) => ({
         ...state,
         isFetching: false,
-        ids: payload.result || [],
+        ids: union(state.ids, payload.result),
+        meta,
+      }),
+
+      [entitySuccessType]: (state, { payload, meta }) => ({
+        ...state,
+        isFetching: false,
+        ids: union(state.ids, [payload.result]),
         meta,
       }),
 
@@ -174,7 +179,7 @@ collections.forEach((collection) => {
   }
 
   if (multi) {
-    const collectionStore = createWpCollectionStore(`${name}s`, type, params);
+    const collectionStore = createWpCollectionStore(name, type, params);
     reducers[`${name}s`] = collectionStore.reducer;
     actions[camelCase(`fetch ${name}s`)] = collectionStore.action;
   }

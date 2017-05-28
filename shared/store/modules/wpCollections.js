@@ -2,27 +2,26 @@ const collections = [
   {
     name: 'post',
     type: 'posts',
-    params: {},
   },
   {
     name: 'course',
     type: 'courses',
-    params: {},
+  },
+  {
+    name: 'page',
+    type: 'pages',
   },
   {
     name: 'courseCategorie',
     type: 'course_categories',
-    params: {},
   },
   {
     name: 'partner',
     type: 'partners',
-    params: {},
   },
   {
     name: 'staff',
     type: 'staff',
-    params: {},
   },
   {
     name: 'home',
@@ -30,6 +29,22 @@ const collections = [
     multi: false,
     params: {
       slug: 'home',
+    },
+  },
+  {
+    name: 'contact',
+    type: 'pages',
+    multi: false,
+    params: {
+      slug: 'contact',
+    },
+  },
+  {
+    name: 'about',
+    type: 'pages',
+    multi: false,
+    params: {
+      slug: 'about',
     },
   },
 ];

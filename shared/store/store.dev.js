@@ -16,14 +16,18 @@ const composeEnhancers = typeof window === 'object' &&
   ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__(
     {
         // Specify extension’s options like name, actionsBlacklist, actionsCreators, serialize...
-    },
+    }
     )
   : compose;
 
 export default (initialState, history) => {
-  const enhancer = composeEnhancers(
-    applyMiddleware(thunk, api, routerMiddleware(history), createLogger()),
-  );
+  const middleware = [thunk, api, routerMiddleware(history)];
+
+  if (IS_CLIENT && IS_DEV) {
+    middleware.push(createLogger());
+  }
+
+  const enhancer = composeEnhancers(applyMiddleware(...middleware));
 
   const store = createStore(connectRouter(history)(rootReducer), initialState, enhancer);
 

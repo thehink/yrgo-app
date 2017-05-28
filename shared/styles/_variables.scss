@@ -11,11 +11,12 @@ $link-decoration:       none;
 $link-hover-color:      darken($link-color, 15%);
 $link-hover-decoration: underline;
 
+$headings-color:         $yrgo-red;
 
 $grid-columns:               12;
 $grid-gutter-width-base:     80px;
 $grid-gutter-widths: (
-  xs: 30px,
+  xs: 0px,
   sm: 30px,
   md: 30px,
   lg: $grid-gutter-width-base,

@@ -1,4 +1,6 @@
 @import "~styles/colors";
+@import "~styles/variables";
+@import "~bootstrap/scss/mixins";
 
 .wrapper{
   position: fixed;
@@ -14,7 +16,7 @@
     align-items: center;
     height: 75px;
     background: #FFF;
-    padding: 0;
+    padding: 0 20px;
   }
 
   .nav{
@@ -31,6 +33,10 @@
       font-size: 18px;
       color: #000000 !important;
       letter-spacing: 0;
+
+      @include media-breakpoint-down(sm) {
+        font-size: 14px;
+      }
     }
 
     &:hover > a {

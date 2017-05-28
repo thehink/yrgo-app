@@ -16,7 +16,7 @@ export default class FrontPageDescription extends Component {
     return (
       <div className={styles.wrapper}>
         <div className={'row'}>
-          <div className={`col-12 ${styles.content}`}>
+          <div className={`col-12 ${styles.content} p-0`}>
             <h2>Yrgo</h2>
             <p>
               {this.props.text}

@@ -92,12 +92,15 @@ const values = {
     childSrc: ['www.youtube.com', 'youtube.com'],
     connectSrc: [],
     defaultSrc: [],
-    fontSrc: [
-      'cdnjs.cloudflare.com',
-      'https://fonts.googleapis.com/css',
-      'https://fonts.gstatic.com',
+    fontSrc: ['cdnjs.cloudflare.com', 'https://fonts.googleapis.com/css', '*.gstatic.com'],
+    imgSrc: [
+      'localhost',
+      'madebyfew.com',
+      'media.giphy.com',
+      '*.gstatic.com',
+      '*.googleapis.com',
+      '*.ggpht.com',
     ],
-    imgSrc: ['localhost', 'madebyfew.com', 'media.giphy.com'],
     mediaSrc: [],
     manifestSrc: [],
     objectSrc: [],
@@ -105,6 +108,8 @@ const values = {
       // Allow scripts from https://cdn.polyfill.io so that we can import the
       // polyfill.
       'https://cdn.polyfill.io',
+      'https://developers.google.com',
+      'https://maps.googleapis.com',
     ],
     styleSrc: [
       'cdnjs.cloudflare.com',

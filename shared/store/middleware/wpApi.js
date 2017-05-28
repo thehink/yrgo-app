@@ -40,6 +40,12 @@ const apiFetch = async ({ namespace, type, collection, method = 'get', schema, p
         response = response[0];
       }
 
+      if (isArray(response)) {
+        response = response.map(obj => ({ ...obj, _links: undefined }));
+      } else {
+        delete response._links;
+      }
+
       return {
         payload: Object.assign({}, normalize(response, schema)),
         meta,

@@ -1,7 +1,7 @@
 @import "~styles/colors";
 
 .wrapper {
-
+  display: block;
 }
 
 .button {
@@ -31,8 +31,16 @@
 
   &:active, &.active {
     background: $yrgo-red;
+    color: #FFF;
     a {
       color: #FFF;
     }
+  }
+}
+
+:global(.active) .button {
+  background: $yrgo-red;
+  a {
+    color: #FFF;
   }
 }

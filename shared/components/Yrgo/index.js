@@ -37,10 +37,7 @@ export default () => {
         <Route exact path="/contact" component={Contact} />
 
         {/* match educations */}
-        <Route exact path="/about" component={About} />
-
-        {/* match page */}
-        <Route exact path="/(.*)/:slug" component={Home} />
+        <Route exact path="/about/:slug?" component={About} />
 
         <Route component={NotFound} />
       </Switch>

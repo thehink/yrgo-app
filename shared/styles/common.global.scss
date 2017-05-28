@@ -1,27 +1,35 @@
 @import "colors";
 @import "fonts";
 
+h1, h2, h3, h4, h5, h6, .heading1, .heading2, .heading3, .heading4, .heading5, .heading6, {
+  color: $yrgo-red;
+  text-transform: uppercase;
+  margin: 10px 0;
+}
 
 h1, .heading1 {
-  color: $yrgo-red;
   font-size: 36px;
-  margin: 0;
 }
 
 h2, .heading2 {
-  color: $yrgo-red;
   font-size: 24px;
-  margin: 0;
 }
 
 h3, .heading3{
-  color: $yrgo-red;
   font-size: 24px;
 }
 
+h4, .heading4{
+  display: block;
+  font-size: 18px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  word-wrap:break-word;
+}
+
 .max-width {
-  max-width: 1180px;
-  padding: 0 0;
+  max-width: 1220px;
+  padding: 0 20px;
   margin: 0 auto;
 
   .row {

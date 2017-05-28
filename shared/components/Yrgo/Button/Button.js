@@ -12,7 +12,12 @@ export default class Button extends Component {
     } = this.props;
 
     return (
-      <YrgoShadow className={`${styles.wrapper} ${className}`} color={'yrgoRed'} offset={10} hover>
+      <YrgoShadow
+        className={`${styles.wrapper} ${className || ''}`}
+        color={'yrgoRed'}
+        offset={10}
+        hover
+      >
         <button {...this.props} className={styles.button}>
           {this.props.children}
         </button>
