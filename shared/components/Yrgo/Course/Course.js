@@ -33,10 +33,11 @@ const mapStateToProps = (state, ownProps) => {
 
   if (course) {
     contactPerson = state.entities.staff[course.acf.contact_person];
-    partners = without(
-      course.acf.partners.map(partner => state.entities.partners[partner.partner]),
-      undefined
-    );
+    partners = (course.acf.partners &&
+      without(
+        course.acf.partners.map(partner => state.entities.partners[partner.partner]),
+        undefined
+      )) || [];
   }
 
   // const course = state.entities.courses[id];
@@ -91,57 +92,65 @@ export default class Course extends Component {
       <div className={`${styles.wrapper} max-width`}>
 
         <div className={'row'}>
-          <div className={'col-xs-12 col-md-8'}>
-            <h1>{course.title.rendered}</h1>
+          <div className={'yrgo-col-1 col-md-8'}>
+            <h1 className="m-0">{course.title.rendered}</h1>
             <small className="sub-heading">Subheading</small>
           </div>
-          <div className={'col-xs-12 col-md-4 mt-5 mt-md-0'}>
-            <Button className="ml-5">
+          <div className={'yrgo-col-2 col-md-4 mt-5 mt-md-0'}>
+            <Button className="ml-0 ml-md-5">
               <Link to={`/course/${course.slug}/ansokan`}>Ansök Nu</Link>
             </Button>
           </div>
         </div>
 
         <div className={`row ${styles.informationRow}`}>
-          <div className={'col-xs-12 col-md-8'}>
+          <div className={'yrgo-col-1 col-md-7'}>
             <Image src={course.acf.thumbnail} />
           </div>
-          <div className={'col-md-4'}>
+          <div className={'yrgo-col-2 col-md-5 mt-5 mt-md-0'}>
             <div className="">
               <h2>Information</h2>
-              <div className="asd">
-                <span>Längd: </span>
-                <span>80 veckor heltid</span>
-              </div>
+              <div
+                className="asd"
+                dangerouslySetInnerHTML={{ __html: course.acf.additional_information }}
+              />
             </div>
           </div>
         </div>
 
         <div className={`row ${styles.aboutRow}`}>
-          <div className={'col-xs-12 col-md-8'}>
+          <div className={'yrgo-col-1 col-md-7'}>
             <h2 className={styles.descriptionHeading}>Om Utbildningen</h2>
             <p dangerouslySetInnerHTML={{ __html: course.acf.about }} />
           </div>
-          <div className={'col-xs-12 col-md-4'}>
+          <div className={'yrgo-col-2 col-md-5 mt-5 mt-md-0'}>
             <Image src={course.acf.thumbnail} aspect={1} />
           </div>
         </div>
 
         <div className={`row ${styles.testimonialRow}`}>
-          <div className={`col-xs-12 col-md-8 ${styles.testimonialWrapper}`}>
-            <Testimonial testimonials={[]} />
+          <div className={`yrgo-col-1 col-md-7 ${styles.testimonialWrapper}`}>
+            <Testimonial
+              testimonials={[
+                {
+                  name: course.acf.testimonial_name,
+                  image: course.acf.testimonial_image,
+                  text: course.acf.testimonial_text,
+                },
+              ]}
+            />
           </div>
-          <div className={'col-xs-12 col-md-4'}>
+          <div className={'yrgo-col-2 col-md-5 mt-5 mt-md-0'}>
             <Image src={course.acf.thumbnail} aspect={1} link={'http://instagram.com'} />
           </div>
         </div>
 
         <div className={`row ${styles.partnersRow}`}>
-          <div className={'col-xs-12 col-md-8'}>
+          <div className={'yrgo-col-1 col-md-7'}>
             <h2 className={styles.descriptionHeading}>Arbetsmarknad & Lia</h2>
             <p dangerouslySetInnerHTML={{ __html: course.acf.lia }} />
           </div>
-          <div className={'col-xs-12 col-md-4'}>
+          <div className={'yrgo-col-2 col-md-5'}>
             {Boolean(partners.length) && <Partners partners={partners} />}
           </div>
         </div>

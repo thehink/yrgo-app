@@ -1,5 +1,7 @@
 @import "colors";
 @import "fonts";
+@import "variables";
+@import "~bootstrap/scss/mixins";
 
 h1, h2, h3, h4, h5, h6, .heading1, .heading2, .heading3, .heading4, .heading5, .heading6, {
   color: $yrgo-red;
@@ -41,6 +43,20 @@ h4, .heading4{
         //padding-right: 40px !important;
       }
     }
+  }
+}
+
+.yrgo-col-1 {
+  @include media-breakpoint-up(md) {
+    flex: 0 0 62.779661016%;
+    max-width: 62.779661016%;
+  }
+}
+
+.yrgo-col-2 {
+  @include media-breakpoint-up(md) {
+    flex: 0 0 37.220338984%;
+    max-width: 37.220338984%;
   }
 }
 

@@ -34,7 +34,7 @@ const mapDispatchToProps = {};
 export default class CourseCategory extends Component {
   renderCategory(course) {
     return (
-      <div key={course.id} className="col-xs-12 col-sm-6 col-md-4">
+      <div key={course.id} className="col-xs-12 col-sm-6 col-md-4 pl-0">
         <CourseCard
           image={course.acf.thumbnail}
           link={`/course/${course.slug}`}
@@ -60,11 +60,10 @@ export default class CourseCategory extends Component {
         <small className="sub-heading">{category.acf.sub_heading}</small>
 
         <div className="row mt-5">
-          <div className="col-xs-12 col-8 p-0">
-            <p>
-              Gillar du att arbeta med bokföring, lagar och skatter? Att ha koll på läget, pussla ihop saker och skapa struktur? Hjälpa människor och ge dem råd? Hitta rätt varor till bästa pris från den bästa leverantören? Slå försäljningsrekord och planera resurser? Leta efter nya möjligheter att få mesta möjliga vinst till ditt företag? Då är förmodligen någon av våra utbildningar inom ekonomi, handel och administration något för dig. Där kan du skaffa dig en bred kompetens inom ekonomi och lära dig hantera allt mellan tillverkning och försäljning. Vissa utbildningar ger dig en internationell kompetens och som den hamnstad vi är har vi givetvis också utbildningar inom transportområdet.
-            </p>
-          </div>
+          <div
+            className="col-xs-12 col-md-8 p-0"
+            dangerouslySetInnerHTML={{ __html: category.acf.about }}
+          />
         </div>
         <div className="row mt-5">
           {courses.map(this.renderCategory)}
