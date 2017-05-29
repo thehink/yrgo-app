@@ -1,7 +1,7 @@
 {
-  "name": "react-universally",
-  "version": "13.0.0",
-  "description": "A starter kit for universal react applications.",
+  "name": "yrgo-app",
+  "version": "1.0.0",
+  "description": "New Yrgo site",
   "main": "build/server/index.js",
   "engines": {
     "node": ">=6"
@@ -45,7 +45,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ctrlplusb/react-universally.git"
+    "url": "git+https://github.com/thehink/yrgo-app.git"
   },
   "keywords": [
     "react",
@@ -56,69 +56,7 @@
     "express",
     "webpack"
   ],
-  "contributors": [
-    {
-      "name": "Alin Porumb",
-      "url": "https://github.com/alinporumb"
-    },
-    {
-      "name": "Benjamin Kniffler",
-      "url": "https://github.com/bkniffler"
-    },
-    {
-      "name": "Carson Perrotti",
-      "url": "https://github.com/carsonperrotti"
-    },
-    {
-      "name": "Christian Glombek",
-      "url": "https://github.com/LorbusChris"
-    },
-    {
-      "name": "Christoph Werner",
-      "url": "https://github.com/codepunkt"
-    },
-    {
-      "name": "David Edmondson",
-      "url": "https://github.com/threehams"
-    },
-    {
-      "name": "Dion Dirza",
-      "url": "https://github.com/diondirza"
-    },
-    {
-      "name": "Evgeny Boxer",
-      "url": "https://github.com/evgenyboxer"
-    },
-    {
-      "name": "Joe Kohlmann",
-      "url": "https://github.com/kohlmannj"
-    },
-    {
-      "name": "Lucian Lature",
-      "url": "https://github.com/lucianlature"
-    },
-    {
-      "name": "Steven Enten",
-      "url": "https://github.com/enten"
-    },
-    {
-      "name": "Sean Matheson",
-      "url": "https://github.com/ctrlplusb"
-    },
-    {
-      "name": "Steven Truesdell",
-      "url": "https://github.com/strues"
-    },
-    {
-      "name": "Tom",
-      "url": "https://github.com/datoml"
-    }
-  ],
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/ctrlplusb/react-universally/issues"
-  },
-  "homepage": "https://github.com/ctrlplusb/react-universally#readme",
+  "homepage": "https://github.com/thehink/yrgo-app",
   "dependencies": {
     "app-root-dir": "1.0.2",
     "babel-plugin-module-resolver": "^2.7.1",
