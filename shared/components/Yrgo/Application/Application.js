@@ -92,21 +92,21 @@ export default class Course extends Component {
           </div>
           <div className={'col-12 yrgo-col-2'}>
             <div className="row">
-              <div className="col-12">
+              <div className="col-12 p-0">
                 <Button className="ml-0 ml-md-5">
                   <Link to={`/course/${course.slug}/ansokan`}>Webbansökan</Link>
                 </Button>
               </div>
-              <div className="col-12 mt-5">
+              <div className="col-12 p-0 mt-5">
                 <Button className="ml-0 ml-md-5">
                   <Link to={`/course/${course.slug}/ansokan`}>Arbetsprovet</Link>
                 </Button>
               </div>
-              <div className="col-12 mt-5">
+              <div className="col-12 p-0 mt-5">
                 {contactPerson &&
                   <Image className="mr-0" src={contactPerson.acf.image} aspect={1} />}
               </div>
-              <div className="col-12 mt-5 text-right">
+              <div className="col-12 p-0 mt-5 text-right">
                 <b>Mer Information</b><br />
                 Frågor om utbildningen<br />
                 {contactPerson && contactPerson.title.rendered}<br />
