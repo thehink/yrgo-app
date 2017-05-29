@@ -15,3 +15,34 @@
 .slideWrapper{
   margin: 0 30px 0 30px;
 }
+
+.rightArrow {
+  position: absolute;
+  top: 50%;
+  right: -40px;
+  height: 30px;
+  width: 30px;
+  background-image: url('assets/images/arrow.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.leftArrow {
+  position: absolute;
+  top: 50%;
+  left: -40px;
+  height: 30px;
+  width: 30px;
+  transform: rotate(180deg);
+  background-image: url('assets/images/arrow.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  &:hover {
+    cursor: pointer;
+  }
+}

@@ -126,7 +126,7 @@ export default class Course extends Component {
             <p dangerouslySetInnerHTML={{ __html: course.acf.about }} />
           </div>
           <div className={'yrgo-col-2 col-md-5 mt-5 mt-md-0'}>
-            <Image src={course.acf.thumbnail} aspect={1} />
+            <Image src={course.acf.image_2} aspect={1} />
           </div>
         </div>
 
@@ -144,7 +144,7 @@ export default class Course extends Component {
           </div>
           <div className={'yrgo-col-2 col-md-5 mt-5 mt-md-0'}>
             <Image
-              src={course.acf.thumbnail}
+              src={course.acf.instagram_image}
               aspect={1}
               link={'http://instagram.com'}
               icon={instagramIcon}

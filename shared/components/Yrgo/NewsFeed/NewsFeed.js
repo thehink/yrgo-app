@@ -9,6 +9,18 @@ import styles from './newsFeed.scss';
 
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
+const RightArrow = (props) => {
+  const { className, style, onClick } = props;
+
+  return <div onClick={onClick} style={{ ...style }} className={styles.rightArrow} />;
+};
+
+const LeftArrow = (props) => {
+  const { className, style, onClick } = props;
+
+  return <div onClick={onClick} style={{ ...style }} className={styles.leftArrow} />;
+};
+
 export default class NewsFeed extends Component {
   renderCard(item) {
     return <div key={item}><NewsItem /></div>;
@@ -21,6 +33,8 @@ export default class NewsFeed extends Component {
       speed: 500,
       slidesToShow: 4,
       slidesToScroll: 4,
+      nextArrow: <RightArrow />,
+      prevArrow: <LeftArrow />,
       responsive: [
         {
           breakpoint: 576,
