@@ -22,8 +22,10 @@ export default class CourseCard extends Component {
       imageClass,
       image,
       title,
-      link,
+      link = '',
     } = this.props;
+
+    const externUrl = link.match(/https?:/);
 
     return (
       <YrgoShadow
@@ -32,16 +34,28 @@ export default class CourseCard extends Component {
         offset={10}
         hover
       >
-        <Link to={link} className={styles.link}>
-          <div
-            className={`${styles.image} ${imageClass || ''}`}
-            style={{ backgroundImage: `url(${image})` }}
-          />
-          <div
-            className={`${styles.title} ${titleClass || ''}`}
-            dangerouslySetInnerHTML={{ __html: title }}
-          />
-        </Link>
+        {externUrl
+          ? <a href={link} className={styles.link}>
+            <div
+              className={`${styles.image} ${imageClass || ''}`}
+              style={{ backgroundImage: `url(${image})` }}
+            />
+            <div
+              className={`${styles.title} ${titleClass || ''}`}
+              dangerouslySetInnerHTML={{ __html: title }}
+            />
+          </a>
+          : <Link to={link} className={styles.link}>
+            <div
+              className={`${styles.image} ${imageClass || ''}`}
+              style={{ backgroundImage: `url(${image})` }}
+            />
+            <div
+              className={`${styles.title} ${titleClass || ''}`}
+              dangerouslySetInnerHTML={{ __html: title }}
+            />
+          </Link>}
+
       </YrgoShadow>
     );
   }
