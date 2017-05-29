@@ -2,6 +2,9 @@ const collections = [
   {
     name: 'post',
     type: 'posts',
+    params: {
+      perPage: 100,
+    },
   },
   {
     name: 'course',
@@ -13,10 +16,16 @@ const collections = [
   {
     name: 'page',
     type: 'pages',
+    params: {
+      perPage: 100,
+    },
   },
   {
     name: 'courseCategorie',
     type: 'course_categories',
+    params: {
+      perPage: 100,
+    },
   },
   {
     name: 'partner',

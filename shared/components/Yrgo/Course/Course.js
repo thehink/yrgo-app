@@ -96,7 +96,7 @@ export default class Course extends Component {
         <div className={'row'}>
           <div className={'yrgo-col-1 col-md-8'}>
             <h1 className="m-0">{course.title.rendered}</h1>
-            <small className="sub-heading">Subheading</small>
+            <small className="sub-heading">Yrkeshögskoleutbildning, 400 Yh-poäng</small>
           </div>
           <div className={'yrgo-col-2 col-md-4 mt-5 mt-md-0'}>
             <Button className="ml-0 ml-md-5">
