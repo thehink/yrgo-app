@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import Actions from 'store/modules/wordpress';
 const { fetchAbout, fetchPages } = Actions;
 
+import { Element, scroller } from 'react-scroll';
+
 import { Route } from 'react-router';
 
 import Map from 'components/Map';
@@ -53,6 +55,17 @@ export default class About extends Component {
     });
   }
 
+  componentDidMount() {}
+
+  onClick() {
+    scroller.scrollTo('myScrollToElement', {
+      duration: 500,
+      delay: 100,
+      smooth: true,
+      offset: -80,
+    });
+  }
+
   render() {
     const {
       isFetching,
@@ -80,7 +93,9 @@ export default class About extends Component {
           </div>
         </div>
 
-        <SubMenu className="mt-5" items={subPages} />
+        <Element name="myScrollToElement">
+          <SubMenu className="mt-5" items={subPages} onClick={this.onClick} />
+        </Element>
 
         <Route exact path="/about/:slug" render={props => <SubPage {...props} />} />
       </div>

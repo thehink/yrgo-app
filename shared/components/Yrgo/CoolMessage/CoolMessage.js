@@ -22,7 +22,7 @@ export default class CoolMessage extends Component {
   };
 
   componentDidMount() {
-    this.interval = setInterval(this.showNextText.bind(this), this.props.interval);
+    this.timeout = setTimeout(this.showNextText.bind(this), this.props.interval);
   }
 
   showNextText() {
@@ -32,11 +32,13 @@ export default class CoolMessage extends Component {
       activeText: nextActiveText,
       lastText: this.state.activeText,
     });
+
+    this.timeout = setTimeout(this.showNextText.bind(this), this.props.interval);
   }
 
   componentWillUnmount() {
-    clearInterval(this.interval);
-    this.interval = null;
+    clearTimeout(this.timeout);
+    this.timeout = null;
   }
 
   // {text

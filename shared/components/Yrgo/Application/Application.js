@@ -86,11 +86,11 @@ export default class Course extends Component {
     return (
       <div className={`${styles.wrapper} max-width`}>
         <div className={'row'}>
-          <div className={'col-xs-12 col-md-8'}>
+          <div className={'col-12 yrgo-col-1'}>
             <h1>Ansökan till {course.title.rendered}</h1>
             <p dangerouslySetInnerHTML={{ __html: course.acf.application_text }} />
           </div>
-          <div className={'col-xs-12 col-md-4 mt-5 mt-md-0 p-0'}>
+          <div className={'col-12 yrgo-col-2'}>
             <div className="row">
               <div className="col-12">
                 <Button className="ml-0 ml-md-5">

@@ -14,6 +14,8 @@ import Partners from 'components/Partners';
 import YrgoShadow from 'components/YrgoShadow';
 import Portfolios from 'components/Portfolios';
 
+import instagramIcon from 'assets/images/instagramtransparent.svg';
+
 import styles from './course.scss';
 
 const mapStateToProps = (state, ownProps) => {
@@ -141,7 +143,12 @@ export default class Course extends Component {
             />
           </div>
           <div className={'yrgo-col-2 col-md-5 mt-5 mt-md-0'}>
-            <Image src={course.acf.thumbnail} aspect={1} link={'http://instagram.com'} />
+            <Image
+              src={course.acf.thumbnail}
+              aspect={1}
+              link={'http://instagram.com'}
+              icon={instagramIcon}
+            />
           </div>
         </div>
 

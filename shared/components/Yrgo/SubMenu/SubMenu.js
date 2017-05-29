@@ -11,16 +11,21 @@ import styles from './subMenu.scss';
 export default class SubMenu extends Component {
   static propTypes = {
     items: PropTypes.array,
+    onClick: PropTypes.function,
   };
 
   renderItem(item) {
     const {
       match,
+      onClick,
     } = this.props;
 
     return (
       <div key={`subpage_${item.id} `} className="col-4">
-        <Button className={`${(match.params.slug === item.slug && 'active') || ''}`}>
+        <Button
+          onClick={onClick}
+          className={`${(match.params.slug === item.slug && 'active') || ''}`}
+        >
           <Link
             to={`/about/${item.slug}`}
             dangerouslySetInnerHTML={{ __html: item.title.rendered }}

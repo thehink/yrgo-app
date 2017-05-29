@@ -10,6 +10,7 @@ export default class Image extends Component {
     src: PropTypes.string,
     aspect: PropTypes.number,
     link: PropTypes.string,
+    icon: PropTypes.string,
   };
 
   static defaultProps = {
@@ -22,6 +23,7 @@ export default class Image extends Component {
       src,
       aspect,
       link,
+      icon,
     } = this.props;
 
     return (
@@ -43,6 +45,8 @@ export default class Image extends Component {
               className={styles.image}
               style={{ backgroundImage: `url(${src})`, paddingBottom: `${aspect * 100}%` }}
             />}
+
+          {icon && <div className={styles.icon} style={{ backgroundImage: `url(${icon})` }} />}
 
         </YrgoShadow>
       </div>
