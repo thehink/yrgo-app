@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 
+import sortBy from 'lodash/sortBy';
+
 import CourseCard from 'components/CourseCard';
 
 import styles from './courseCategory.scss';
@@ -66,7 +68,7 @@ export default class CourseCategory extends Component {
           />
         </div>
         <div className="row mt-5">
-          {courses.map(this.renderCategory)}
+          {sortBy(courses, [course => course.title.rendered]).map(this.renderCategory)}
         </div>
       </div>
     );
