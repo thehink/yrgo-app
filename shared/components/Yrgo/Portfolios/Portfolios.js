@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import sortBy from 'lodash/sortBy';
 
 import CourseCard from 'components/CourseCard';
 
@@ -32,9 +33,11 @@ export default class Portfolios extends Component {
   }
 
   render() {
-    const {
+    let {
       portfolios,
     } = this.props;
+
+    portfolios = sortBy(portfolios, ['name']);
 
     return (
       <div className={styles.wrapper}>
