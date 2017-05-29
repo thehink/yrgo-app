@@ -6,6 +6,9 @@ const collections = [
   {
     name: 'course',
     type: 'courses',
+    params: {
+      perPage: 100,
+    },
   },
   {
     name: 'page',

@@ -16,7 +16,11 @@ export default class Menu extends Component {
   renderMenuItem(item) {
     return (
       <div key={item.id} className={styles.item}>
-        <Link to={item.link} className={styles.link}>{item.title}</Link>
+        <Link
+          to={item.link}
+          className={styles.link}
+          dangerouslySetInnerHTML={{ __html: item.title }}
+        />
       </div>
     );
   }
@@ -24,7 +28,11 @@ export default class Menu extends Component {
   renderMenuCategory(category) {
     return (
       <div key={category.id} className={`${styles.category} card`}>
-        <Link to={category.link} className={styles.link}>{category.title}</Link>
+        <Link
+          to={category.link}
+          className={styles.link}
+          dangerouslySetInnerHTML={{ __html: category.title }}
+        />
         <div className={styles.itemsWrapper}>
           {category.links && category.links.map(this.renderMenuItem)}
         </div>
