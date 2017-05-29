@@ -41,10 +41,10 @@ export default class Parallax extends Component {
           this.scene = el;
         }}
       >
-        <Layer depth={0.1} x={0.5} y={0.03}>
+        <Layer depth={0.1} x={0.4} y={0.03}>
           <div className={`${styles.image} ${styles.kalkylatorShadow}`} />
         </Layer>
-        <Layer depth={0.15} x={0.5} y={0.03}>
+        <Layer depth={0.15} x={0.4} y={0.03}>
           <div className={`${styles.image} ${styles.kalkylator}`} />
         </Layer>
 

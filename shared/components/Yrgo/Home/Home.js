@@ -97,24 +97,24 @@ export default class Home extends Component {
         <Parallax />
         <CoolMessage />
         <div className={`${styles.categoryRow} row max-width`}>
-          <div className="col-xs-12 col-md-6">
+          <div className="col-12 yrgo-col-3">
             <Image src={image} aspect={1} />
           </div>
-          <div className="col-xs-12 col-md-6 mt-5 mt-md-0">
+          <div className="col-12 yrgo-col-4 mt-5 mt-md-0">
             <SubjectCategories>
               {categories.map(this.renderCategory)}
             </SubjectCategories>
           </div>
         </div>
         <div className={`${styles.descriptionRow} row max-width`}>
-          <div className="col-xs-12 col-md-6">
+          <div className="col-12 yrgo-col-3 col-md-6">
             <FrontPageDescription
               text={description}
               facebook={facebook_url}
               instagram={instagram_url}
             />
           </div>
-          <div className="col-xs-12 col-md-6 mt-5 mt-md-0">
+          <div className="col-12 yrgo-col-4 mt-5 mt-md-0">
             <Video url={video_url} />
           </div>
         </div>

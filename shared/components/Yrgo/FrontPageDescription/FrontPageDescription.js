@@ -18,9 +18,7 @@ export default class FrontPageDescription extends Component {
         <div className={'row'}>
           <div className={`col-12 ${styles.content} p-0`}>
             <h2>Yrgo</h2>
-            <p>
-              {this.props.text}
-            </p>
+            <p dangerouslySetInnerHTML={{ __html: this.props.text }} />
           </div>
         </div>
         <SocialButtons className={`${styles.social}`} />

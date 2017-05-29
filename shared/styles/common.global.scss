@@ -60,6 +60,20 @@ h4, .heading4{
   }
 }
 
+.yrgo-col-3 {
+  @include media-breakpoint-up(md) {
+    flex: 0 0 45%;
+    max-width: 45%;
+  }
+}
+
+.yrgo-col-4 {
+  @include media-breakpoint-up(md) {
+    flex: 0 0 55%;
+    max-width: 55%;
+  }
+}
+
 a, button > a {
   color: #000;
   text-decoration: none;
