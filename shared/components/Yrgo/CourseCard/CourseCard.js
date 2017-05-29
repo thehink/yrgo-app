@@ -37,9 +37,10 @@ export default class CourseCard extends Component {
             className={`${styles.image} ${imageClass || ''}`}
             style={{ backgroundImage: `url(${image})` }}
           />
-          <div className={`${styles.title} ${titleClass || ''}`}>
-            {title}
-          </div>
+          <div
+            className={`${styles.title} ${titleClass || ''}`}
+            dangerouslySetInnerHTML={{ __html: title }}
+          />
         </Link>
       </YrgoShadow>
     );

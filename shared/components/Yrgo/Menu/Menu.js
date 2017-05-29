@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
+import sortBy from 'lodash/sortBy';
 
 import Button from 'components/Button';
 
@@ -48,10 +49,23 @@ export default class Menu extends Component {
     }
   }
 
+  sortLinks(links) {
+    links = sortBy(links, [link => link.title.toLowerCase()]);
+    links.forEach((link) => {
+      if (links) {
+        link.links = this.sortLinks(link.links);
+      }
+    });
+
+    return links;
+  }
+
   render() {
-    const {
+    let {
       links,
     } = this.props;
+
+    links = this.sortLinks(links);
 
     return (
       <menu className={`max-width ${styles.wrapper}`}>
