@@ -100,6 +100,7 @@ const values = {
       '*.gstatic.com',
       '*.googleapis.com',
       '*.ggpht.com',
+      '*.fbcdn.net',
     ],
     mediaSrc: [],
     manifestSrc: [],

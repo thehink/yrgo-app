@@ -23,11 +23,20 @@ const LeftArrow = (props) => {
 
 export default class NewsFeed extends Component {
   renderCard(item) {
-    return <div key={item}><NewsItem /></div>;
+    return (
+      <div key={item.id}>
+        <NewsItem
+          date={item.created_time}
+          text={item.message}
+          image={item.full_picture}
+          link={'/'}
+        />
+      </div>
+    );
   }
 
   render() {
-    var settings = {
+    const settings = {
       dots: false,
       infinite: false,
       speed: 500,
@@ -67,12 +76,16 @@ export default class NewsFeed extends Component {
       ],
     };
 
+    const {
+      items,
+    } = this.props;
+
     return (
       <div className={styles.wrapper}>
         <h2>NewsFeed</h2>
         <div className={styles.slideWrapper}>
           <Slider {...settings} className={styles.cardWrapper}>
-            {cards.map(this.renderCard)}
+            {items.map(this.renderCard)}
           </Slider>
         </div>
       </div>

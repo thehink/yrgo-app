@@ -4,18 +4,32 @@ import PropTypes from 'prop-types';
 import styles from './newsItem.scss';
 
 export default class NewsItem extends Component {
+  static propTypes = {
+    date: PropTypes.string,
+    link: PropTypes.string,
+    text: PropTypes.string,
+    image: PropTypes.string,
+  };
+
   render() {
+    const {
+      date,
+      link,
+      text,
+      image,
+    } = this.props;
+
     return (
       <a href="" className={`${styles.wrapper} card`}>
-        <img
-          className="card-img-top"
-          src="https://media.giphy.com/media/oimCQlndn6KPe/giphy.gif?response_id=591ca92665ca98ba4cb3b6fd"
+        <div
+          className={`${styles.image} card-img-top`}
           alt="Card image cap"
+          style={{ backgroundImage: `url(${image})` }}
         />
         <div className={`${styles.block} card-block`}>
-          <small className={styles.date}>16 maj 2017</small>
+          <small className={styles.date}>{date}</small>
           <p className={`${styles.text} card-text`}>
-            Some quick example text to build on the card title and make up the bulk of the cards content.
+            {text}
           </p>
         </div>
       </a>

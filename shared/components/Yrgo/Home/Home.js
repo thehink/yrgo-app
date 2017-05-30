@@ -7,6 +7,8 @@ import Helmet from 'react-helmet';
 import Actions from 'store/modules/wordpress';
 const { fetchHome } = Actions;
 
+import { fetchFeed } from 'store/modules/facebook';
+
 import Image from 'components/Image';
 import Parallax from 'components/Parallax';
 import SubjectCategories from 'components/SubjectCategories';
@@ -31,6 +33,8 @@ const mapStateToProps = (state, ownProps) => {
 
   const isFetching = state.wp.home.isFetching;
 
+  const feed = state.feed.items;
+
   return {
     isFetching,
     image,
@@ -39,11 +43,13 @@ const mapStateToProps = (state, ownProps) => {
     facebook_url,
     instagram_url,
     categories,
+    feed,
   };
 };
 
 const mapDispatchToProps = {
   fetchHome,
+  fetchFeed,
 };
 
 @withRouter
@@ -58,7 +64,7 @@ export default class Home extends Component {
       return true;
     }
 
-    return this.props.fetchHome();
+    return Promise.all([this.props.fetchHome(), this.props.fetchFeed()]);
   }
 
   componentWillMount() {
@@ -86,6 +92,7 @@ export default class Home extends Component {
       instagram_url,
       categories,
       isFetching,
+      feed,
     } = this.props;
 
     if (isFetching) {
@@ -120,7 +127,7 @@ export default class Home extends Component {
         </div>
         <div className={`${styles.newsRow} row max-width`}>
           <div className="col-12">
-            <NewsFeed />
+            <NewsFeed items={feed} />
           </div>
         </div>
       </div>

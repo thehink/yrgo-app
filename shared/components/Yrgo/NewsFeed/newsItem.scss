@@ -9,6 +9,12 @@
   background: #E4E9EB;
 }
 
+.image{
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-bottom: 100%;
+}
+
 .date {
   color: #000000;
   display: block;
@@ -25,4 +31,7 @@
   letter-spacing: 0;
   line-height: 18px;
   font-weight: 400;
+  height: 125px;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }

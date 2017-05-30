@@ -21,7 +21,7 @@ export default class SubMenu extends Component {
     } = this.props;
 
     return (
-      <div key={`subpage_${item.id} `} className="col-4">
+      <div key={`subpage_${item.id} `} className="col-xs-12 col-md-4">
         <Button
           onClick={onClick}
           className={`${(match.params.slug === item.slug && 'active') || ''}`}
