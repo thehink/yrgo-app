@@ -7,6 +7,8 @@ import without from 'lodash/without';
 import Actions from 'store/modules/wordpress';
 const { fetchCourse, fetchStaffs, fetchPartners } = Actions;
 
+import { Element, scroller } from 'react-scroll';
+
 import Button from 'components/Button';
 import Image from 'components/Image';
 import Testimonial from 'components/Testimonial';
@@ -74,6 +76,15 @@ export default class Course extends Component {
     return Promise.all([this.props.fetchPartners(), this.props.fetchStaffs()]);
   }
 
+  scrollPortfolios() {
+    scroller.scrollTo('portfolios', {
+      duration: 500,
+      delay: 100,
+      smooth: true,
+      offset: -40,
+    });
+  }
+
   render() {
     const {
       isFetching,
@@ -92,6 +103,11 @@ export default class Course extends Component {
 
     return (
       <div className={`${styles.wrapper} max-width`}>
+
+        <div className={styles.arrow} onClick={this.scrollPortfolios}>
+          Portfolios
+          <div className={styles.icon} />
+        </div>
 
         <div className={'row'}>
           <div className={'yrgo-col-1 col-md-8'}>
@@ -183,6 +199,7 @@ export default class Course extends Component {
           </div>
         </YrgoShadow>
 
+        <Element name="portfolios" />
         <Portfolios portfolios={course.acf.portfolios} />
 
       </div>
