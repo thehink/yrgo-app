@@ -448,6 +448,8 @@ export default function webpackConfigFactory(buildOptions) {
                   // skip it when reconciling.
                   ifProd('transform-react-constant-elements'),
 
+                  ifProd('transform-react-remove-prop-types'),
+
                   'transform-class-properties',
 
                   'transform-decorators-legacy',
@@ -492,7 +494,6 @@ export default function webpackConfigFactory(buildOptions) {
             ...cssLoaders,
           ],
         })),
-
       // END: HAPPY PACK PLUGINS
       // -----------------------------------------------------------------------
     ]),
