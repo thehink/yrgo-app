@@ -4,6 +4,7 @@
 
 .wrapper {
   margin-top: 144px;
+  position: relative;
 
   p {
     font-size: 16px;
@@ -16,13 +17,14 @@
 .arrow {
   display: flex;
   position: absolute;
-  top: 100px;
+  top: 450px;
   font-size: 18px;
-  right: -40px;
+  right: -20px;
   transform: rotate(90deg);
   cursor: pointer;
   text-transform: uppercase;
   color: $yrgo-red;
+  z-index: 9999;
 
   @include media-breakpoint-down(sm) {
     display: none;
