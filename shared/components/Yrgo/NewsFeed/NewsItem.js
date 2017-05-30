@@ -27,7 +27,7 @@ export default class NewsItem extends Component {
           style={{ backgroundImage: `url(${image})` }}
         />
         <div className={`${styles.block} card-block`}>
-          <small className={styles.date}>{date}</small>
+          <small className={styles.date}>{new Date(date).toLocaleDateString()}</small>
           <p className={`${styles.text} card-text`}>
             {text}
           </p>
