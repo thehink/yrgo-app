@@ -68,7 +68,9 @@ export default class CourseCategory extends Component {
           />
         </div>
         <div className="row mt-5">
-          {sortBy(courses, [course => course.title.rendered]).map(this.renderCategory)}
+          {sortBy(courses, [course => course.title.rendered.toLowerCase()]).map(
+            this.renderCategory
+          )}
         </div>
       </div>
     );
