@@ -84,9 +84,10 @@ export default class NewsFeed extends Component {
       <div className={styles.wrapper}>
         <h2>NewsFeed</h2>
         <div className={styles.slideWrapper}>
-          <Slider {...settings} className={styles.cardWrapper}>
-            {items.map(this.renderCard)}
-          </Slider>
+          {Boolean(items.length) &&
+            <Slider {...settings} className={styles.cardWrapper}>
+              {items.map(this.renderCard)}
+            </Slider>}
         </div>
       </div>
     );
