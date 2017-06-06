@@ -15,6 +15,9 @@
     "react/jsx-filename-extension": 0,
     // This rule struggles with flow and class properties
     "react/sort-comp": 0,
+
+    "linebreak-style": 0,
+
     "comma-dangle": [2, {
       "arrays": "always-multiline",
       "objects": "always-multiline",
